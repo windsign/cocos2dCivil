@@ -1,6 +1,8 @@
 #include "HelloWorldScene.h"
 #include "AppMacros.h"
 #include <fstream>
+#include "GameScene.h"
+
 USING_NS_CC;
 using namespace std;
 
@@ -21,60 +23,7 @@ Scene* HelloWorld::scene()
 
 // on "init" you need to initialize your instance
 bool HelloWorld::init()
-{
-    /*
-    //////////////////////////////
-    // 1. super init first
-    if ( !Layer::init() )
-    {
-        return false;
-    }
-    
-    auto visibleSize = Director::getInstance()->getVisibleSize();
-    auto origin = Director::getInstance()->getVisibleOrigin();
-
-    /////////////////////////////
-    // 2. add a menu item with "X" image, which is clicked to quit the program
-    //    you may modify it.
-
-    // add a "close" icon to exit the progress. it's an autorelease object
-    auto closeItem = MenuItemImage::create(
-                                        "CloseNormal.png",
-                                        "CloseSelected.png",
-                                        CC_CALLBACK_1(HelloWorld::menuCloseCallback,this));
-    
-    closeItem->setPosition(origin + Vec2(visibleSize) - Vec2(closeItem->getContentSize() / 2));
-
-    // create menu, it's an autorelease object
-    auto menu = Menu::create(closeItem, nullptr);
-    menu->setPosition(Vec2::ZERO);
-    this->addChild(menu, 1);
-    
-    /////////////////////////////
-    // 3. add your codes below...
-
-    // add a label shows "Hello World"
-    // create and initialize a label
-    
-    auto label = LabelTTF::create("Hello World", "Arial", TITLE_FONT_SIZE);
-    
-    // position the label on the center of the screen
-    label->setPosition(origin.x + visibleSize.width/2,
-                            origin.y + visibleSize.height - label->getContentSize().height);
-
-    // add the label as a child to this layer
-    this->addChild(label, 1);
-
-    // add "HelloWorld" splash screen"
-    auto sprite = Sprite::create("HelloWorld.png");
-
-    // position the sprite on the center of the screen
-    sprite->setPosition(Vec2(visibleSize / 2) + origin);
-
-    // add the sprite as a child to this layer
-    this->addChild(sprite);
-    */
-    
+{    
     if(!Layer::init())
     {
         return false;
@@ -87,7 +36,7 @@ bool HelloWorld::init()
     }
     
     auto program = new GLProgram;
-    program->initWithFilenames("simplevs.vs", "simplefs.fs");
+    bool res = program->initWithFilenames("simplevs.vs", "simplefs.fs");
     program->link();
     program->updateUniforms();
     
@@ -139,6 +88,11 @@ bool HelloWorld::init()
 
     CHECK_GL_ERROR_DEBUG();
     
+	EventDispatcher* dispatcher = Director::getInstance()->getEventDispatcher();
+	EventListenerTouchAllAtOnce* listener = EventListenerTouchAllAtOnce::create();
+	listener->onTouchesBegan = CC_CALLBACK_2(HelloWorld::onTouchesBegan, this);
+	dispatcher->addEventListenerWithSceneGraphPriority(listener, this);
+
     return true;
     
 }
@@ -163,26 +117,11 @@ void HelloWorld::onDraw()
     auto glProgram = getGLProgram();
     glProgram->use();
     glProgram->setUniformsForBuiltins();
-    /*
-    auto size = Director::getInstance()->getWinSize();
-    float vertercies[] = {0,0,
-                        size.width, 0,
-        size.width/2, size.height};
-        float color[] = {0, 1, 0, 1,
-                        1, 0, 0, 1,
-                        0, 0, 1, 1};
-        GL::enableVertexAttribs(GL::VERTEX_ATTRIB_FLAG_POSITION | GL::VERTEX_ATTRIB_FLAG_COLOR);
-        
-        glVertexAttribPointer(GLProgram::VERTEX_ATTRIB_POSITION, 2, GL_FLOAT, 0, 0, vertercies);
-        glVertexAttribPointer(GLProgram::VERTEX_ATTRIB_COLOR, 4, GL_FLOAT, 0, 0, color);
-        
-        glDrawArrays(GL_TRIANGLES, 0, 3);
-        
-        */
+
     glBindVertexArray(m_vao);
     glDrawElements(GL_TRIANGLES, 12, GL_UNSIGNED_BYTE, (GLvoid*)0);
 
-    CC_INCREMENT_GL_DRAWN_BATCHES_AND_VERTICES(1, 3);
+    CC_INCREMENT_GL_DRAWN_BATCHES_AND_VERTICES(1, 6);
     
     glBindVertexArray(0);
     CHECK_GL_ERROR_DEBUG();
@@ -194,4 +133,11 @@ void HelloWorld::visit(Renderer *renderer, const Mat4& transform, uint32_t paren
     m_command.init(_globalZOrder);
     m_command.func = CC_CALLBACK_0(HelloWorld::onDraw, this);
     Director::getInstance()->getRenderer()->addCommand(&m_command);
+}
+
+void HelloWorld::onTouchesBegan(const std::vector<Touch*>& touches, Event *unused_event)
+{
+	auto scene = CGameScene::create();
+	auto animationScene = TransitionFade::create(0.5f, scene);
+	Director::getInstance()->replaceScene(animationScene);
 }
