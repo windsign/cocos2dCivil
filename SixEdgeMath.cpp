@@ -35,10 +35,10 @@ resSixEdge CSixEdgeMath::GetPointByLogicPos(int x, int y, bool isOdd)
 	return res;
 }
 
-CPoint2D CSixEdgeMath::GetPoint(int x, int y, bool isOdd)
+CPoint2D CSixEdgeMath::GetPoint(CLPoint2D& p, bool isOdd)
 {
-    float off_y = y * 3 * m_fEdgeLength;
-    float off_x = x * SQRT3 * m_fEdgeLength;
+    float off_y = p.y * 3 * m_fEdgeLength;
+    float off_x = p.x * SQRT3 * m_fEdgeLength;
     
     if (!isOdd)
     {

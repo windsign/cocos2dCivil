@@ -1,6 +1,10 @@
 #ifndef RENDEROBJECT_H
 #define RENDEROBJECT_H
 
+#include "cocos2d.h"
+
+USING_NS_CC;
+
 class CRenderObject
 {
 public:
@@ -9,9 +13,9 @@ public:
 	virtual void SetPosition(CPoint2D& p);
 protected:
 	CPoint2D m_curPos;
-	int m_iMesh;
-	int m_iTexture;
-
+	GLuint m_iMeshBuffer;
+	GLuint m_ivao;
+	GLProgram* m_pShader;
 };
 
 #endif

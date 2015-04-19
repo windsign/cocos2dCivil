@@ -6,6 +6,8 @@
 class CPawn
 {
 public:
+	CPawn();
+	~CPawn();
 	void Update(float t);
 	void SetPos(CLPoint2D &lp);
 private:

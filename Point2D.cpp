@@ -52,3 +52,20 @@ CPoint2D CPoint2D::operator*(float f)
 	res.y = y*f;
 	return res;
 }
+
+const CLPoint2D& CLPoint2D::operate=(const CLPoint2D& p)
+{
+	x = p.x;
+	y = p.y;
+	o = p.o;
+}
+
+CLPoint2D CLPoint2D::operate+(const CLPoint2D& p)
+{
+	CLPoint2D rp;
+	rp.x = x + p.x;
+	rp.y = y + p.y;
+	rp.o = (o == p.o);
+	return rp;
+}
+

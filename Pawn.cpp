@@ -21,5 +21,5 @@ void CPawn::Update(float t)
 void CPawn::SetPos(CLPoint2D &lp)
 {
 	m_logicPoint = lp;
-
+	
 }
