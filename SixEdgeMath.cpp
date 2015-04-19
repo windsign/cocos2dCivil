@@ -11,13 +11,13 @@ resSixEdge CSixEdgeMath::GetPointByLogicPos(int x, int y, bool isOdd)
 {
 	//区分六边形地图的奇偶
 	
-	float off_x = x * 3 * m_fEdgeLength;
-	float off_y = y * SQRT3 * m_fEdgeLength;
+	float off_y = y * 3 * m_fEdgeLength;
+	float off_x = x * SQRT3 * m_fEdgeLength;
 	
 	if (!isOdd)
 	{
-		off_x += m_fEdgeLength * 1.5;
-		off_y -= 0.5 * SQRT3 * m_fEdgeLength;
+		off_y += m_fEdgeLength * 1.5;
+		off_x -= 0.5 * SQRT3 * m_fEdgeLength;
 	}
 
 	resSixEdge res;
@@ -35,6 +35,20 @@ resSixEdge CSixEdgeMath::GetPointByLogicPos(int x, int y, bool isOdd)
 	return res;
 }
 
+CPoint2D CSixEdgeMath::GetPoint(int x, int y, bool isOdd)
+{
+    float off_y = y * 3 * m_fEdgeLength;
+    float off_x = x * SQRT3 * m_fEdgeLength;
+    
+    if (!isOdd)
+    {
+        off_y += m_fEdgeLength * 1.5;
+        off_x -= 0.5 * SQRT3 * m_fEdgeLength;
+    }
+    
+    CPoint2D rp(off_x, off_y);
+    return rp;
+}
 
 CSixEdgeMath::CSixEdgeMath()
 {
@@ -49,12 +63,12 @@ CSixEdgeMath::~CSixEdgeMath()
 
 CMetaSixEdge::CMetaSixEdge()
 {
-	m_point[0] = CPoint2D(-1.0f, 0);
-	m_point[1] = CPoint2D(-0.5f, SQRT3*0.5f);
-	m_point[2] = CPoint2D(0.5f, SQRT3*0.5f);
-	m_point[3] = CPoint2D(1.0f, 0);
-	m_point[4] = CPoint2D(0.5f, -SQRT3*0.5f);
-	m_point[5] = CPoint2D(-0.5f, -SQRT3*0.5f);
+	m_point[0] = CPoint2D(-SQRT3*0.5f, -0.5f);
+	m_point[1] = CPoint2D(-SQRT3*0.5f, 0.5f);
+	m_point[2] = CPoint2D(0.0f, 1.0f);
+	m_point[3] = CPoint2D(SQRT3*0.5f, 0.5f);
+	m_point[4] = CPoint2D(SQRT3*0.5f, -0.5f);
+	m_point[5] = CPoint2D(0.0f, -1.0f);
 }
 
 CMetaSixEdge::~CMetaSixEdge()

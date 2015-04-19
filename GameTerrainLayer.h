@@ -27,6 +27,10 @@ public:
 
 	void onTouchesBegan(const std::vector<Touch*>& touches, Event *unused_event);
 
+    virtual void visit(Renderer *renderer, const Mat4& parentTransform, uint32_t parentFlags);
+    void onDraw();
+private:
+	CustomCommand m_command;
 };
 
 #endif

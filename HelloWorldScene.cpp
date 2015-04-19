@@ -36,7 +36,7 @@ bool HelloWorld::init()
     }
     
     auto program = new GLProgram;
-    bool res = program->initWithFilenames("simplevs.vs", "simplefs.fs");
+    program->initWithFilenames("simplevs.vs", "simplefs.fs");
     program->link();
     program->updateUniforms();
     
@@ -49,12 +49,12 @@ bool HelloWorld::init()
     }vertex;
     
     vertex verteics[] = {
-    {{20, 0}, {1, 0, 0, 1}},
-    {{10, 17.32}, {1, 0, 0, 1}},
-    {{20, 34.68}, {1, 0, 0, 1}},
-    {{40, 34.68}, {1, 0, 0, 1}},
-    {{50, 17.32}, {1, 0, 0, 1}},
-    {{40, 0}, {1, 0, 0, 1}}
+    {{-17.32, -10}, {1, 0, 0, 1}},
+    {{-17.32, 10}, {1, 0, 0, 1}},
+    {{0, 20}, {1, 0, 0, 1}},
+    {{17.32, 10}, {1, 0, 0, 1}},
+    {{17.32, -10}, {1, 0, 0, 1}},
+    {{0, -20}, {1, 0, 0, 1}}
     };
     
     GLubyte indexs[]={0, 1, 2, 0, 2, 3, 0, 3, 4, 0, 4, 5};

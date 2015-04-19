@@ -1,7 +1,7 @@
 #include "SixEdgeLayer.h"
 #include "SixEdgeMath.h"
 
-const float g_sqrt3 = 1.732f;
+//const float g_sqrt3 = 1.732f;
 
 CSixEdgeLayer::CSixEdgeLayer()
 {
@@ -24,15 +24,8 @@ bool CSixEdgeLayer::init()
 void CSixEdgeLayer::draw(Renderer *renderer, const Mat4& transform, uint32_t flags)
 {
 	glLineWidth(1);
-// 	ccDrawColor4B(0, 255, 0, 255);
-// 	ccDrawCircle(ccp(10, 10),//圆心
-// 		30,//半径
-// 		1, //如果后面设置了从圆心到圆的连线为true的话，
-// 		//这个值是连线的角度，0为水平向左，逆时针
-// 		360,//将这个圆分为多少块
-// 		true//是否有从圆心到圆的连线
-// 		);
 
+/*
 	//画一个多边形
 	ccDrawColor4B(0, 168, 0, 200);
 	glLineWidth(1);
@@ -50,6 +43,7 @@ void CSixEdgeLayer::draw(Renderer *renderer, const Mat4& transform, uint32_t fla
 			ccDrawPoly(vertices, 6, true);
 		}
 	}
+ 
 
 	for (int i = 0; i < 4; i++)
 	{
@@ -65,6 +59,7 @@ void CSixEdgeLayer::draw(Renderer *renderer, const Mat4& transform, uint32_t fla
 			ccDrawPoly(vertices, 6, true);
 		}
 	}
+  */
 
 }
 

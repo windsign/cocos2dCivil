@@ -6,15 +6,16 @@
 class CPawn
 {
 public:
-
+	void Update(float t);
+	void SetPos(CLPoint2D &lp);
 private:
 //location
 	CLPoint2D m_logicPoint;
-	CPoint2D  m_curPos;
-	CPoint2D  m_wishPos;
 //fight
 	int	m_iPower;
 	int m_iHealth;
+//renderobject
+	int m_iRenderIdx;
 };
 
 #endif

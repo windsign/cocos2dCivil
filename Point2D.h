@@ -24,4 +24,13 @@ public:
 	
 };
 
+class CLPoint2D
+{
+public:
+    CLPoint2D(){x = 0; y = 0;}
+	CLPoint2D(int a, int b){x = a; y = b;}
+	
+	int x;
+	int y;
+};
 #endif

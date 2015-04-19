@@ -18,7 +18,9 @@ public:
 
 	//void PreloadMusic();
 
-public:
+	void onTouchesBegan(const std::vector<Touch*>& touches, Event *unused_event);
+
+private:
 	CGameTerrainLayer* m_pGameTerrainLayer;
 	//	CSixEdgeLayer* m_sixEdgeLayer;
 
