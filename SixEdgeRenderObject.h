@@ -2,6 +2,7 @@
 #define SIXEDGERENDEROBJECT
 
 #include "SixEdgeMath.h"
+#include "RenderObject.h"
 
 class CSixEdgeRenderObject : public CRenderObject
 {

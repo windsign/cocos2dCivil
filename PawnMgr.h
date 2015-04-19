@@ -1,10 +1,12 @@
 #ifndef PAWNMGR_H
 #define PAWNMGR_H
 
+#include <map>
+
 class CPawn;
 
 using namespace std;
-
+class CRenderWorld;
 class CPawnMgr
 {
 public:
@@ -13,6 +15,7 @@ public:
 	CPawn* CreateNewPawn();
 private:
 //Pawns
-	vector<CPawn*> m_vecPawns;
+	map<int, CPawn*> m_mapPawns;
+	int m_iCurIndex;
 };
 #endif

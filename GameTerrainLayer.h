@@ -16,15 +16,6 @@ public:
 
 	CREATE_FUNC(CGameTerrainLayer);
 
-	//void loadingDone(Node* pNode);
-
-	//virtual void keyBackClicked();//
-	//virtual void onKeyReleased(EventKeyboard::KeyCode keyCode, Event* event);
-
-	//bool isHaveSaveFile();
-
-	//void getHighestHistorySorce();
-
 	void onTouchesBegan(const std::vector<Touch*>& touches, Event *unused_event);
 
     virtual void visit(Renderer *renderer, const Mat4& parentTransform, uint32_t parentFlags);

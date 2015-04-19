@@ -3,6 +3,7 @@
 
 #include "Point2D.h"
 
+class CRenderWorld;
 class CPawn
 {
 public:
@@ -10,7 +11,11 @@ public:
 	~CPawn();
 	void Update(float t);
 	void SetPos(CLPoint2D &lp);
+	void SetIndex(int idx){ m_iIndex = idx; }
+	int GetIndex(){ return m_iIndex; }
+	void Init(CRenderWorld* renderWorld);
 private:
+	int m_iIndex;
 //location
 	CLPoint2D m_logicPoint;
 //fight
@@ -18,6 +23,7 @@ private:
 	int m_iHealth;
 //renderobject
 	int m_iRenderIdx;
+	CRenderWorld* m_pRenderWorld;
 };
 
 #endif

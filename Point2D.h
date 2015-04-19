@@ -29,8 +29,8 @@ class CLPoint2D
 public:
     CLPoint2D(){x = 0; y = 0; o = true;}
 	CLPoint2D(int a, int b, bool odd){x = a; y = b;o = odd;}
-	const CLPoint2D& operate=(const CLPoint2D& p);
-	CLPoint2D operate+(const CLPoint2D& p);
+	const CLPoint2D& operator=(const CLPoint2D& p);
+	CLPoint2D operator+(const CLPoint2D& p);
 	int x;
 	int y;
 	bool o;
