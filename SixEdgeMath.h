@@ -25,9 +25,10 @@ public:
 	~CSixEdgeMath();
 
 	resSixEdge GetPointByLogicPos(int x, int y, bool isOdd = true);
-    CPoint2D GetPoint(CLPoint2D& p, bool isOdd = true);
+    CPoint2D GetPoint(CLPoint2D& p, bool isEven = true);
 	void SetDefaultEdgeLength(float l){ m_fEdgeLength = l;}
     float GetDefaultEdgeLength(){return m_fEdgeLength;}
+	CLPoint2D GetCell(int sx, int sy);
 private:
 	float m_fEdgeLength;
 	CMetaSixEdge m_MetaSixEdge;

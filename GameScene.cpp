@@ -33,6 +33,19 @@ bool CGameScene::init()
 	}
 	this->addChild(m_pPawnsLayer);
 
+	
+	m_pRenderWorld = new CRenderWorld;
+
 	m_pPawnMgr = new CPawnMgr;
+	m_pPawnMgr->Init(m_pRenderWorld);
 	return true;
+}
+
+void CGameScene::Clear()
+{
+	delete m_pRenderWorld;
+	m_pRenderWorld = 0;
+
+	delete m_pPawnMgr;
+	m_pPawnMgr = 0;
 }

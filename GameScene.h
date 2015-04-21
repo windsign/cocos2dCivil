@@ -24,6 +24,8 @@ public:
 
 	void onTouchesBegan(const std::vector<Touch*>& touches, Event *unused_event);
 
+public:
+	void Clear();
 private:
 	//layer
 	CGameTerrainLayer*	m_pGameTerrainLayer;
@@ -31,6 +33,7 @@ private:
 private:
 	//logic 
 	CPawnMgr*			m_pPawnMgr;
+	CRenderWorld*		m_pRenderWorld;
 	//	CSixEdgeLayer* m_sixEdgeLayer;
 
 };

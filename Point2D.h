@@ -12,6 +12,7 @@ public:
 	const CPoint2D& operator*=(const float length);
 	CPoint2D operator+(const CPoint2D& p);
 	CPoint2D operator*(float f);
+	float Distance(const CPoint2D& p);
 	union
 	{
 		struct 
@@ -27,12 +28,12 @@ public:
 class CLPoint2D
 {
 public:
-    CLPoint2D(){x = 0; y = 0; o = true;}
-	CLPoint2D(int a, int b, bool odd){x = a; y = b;o = odd;}
+    CLPoint2D(){x = 0; y = 0; e = true;}
+	CLPoint2D(int a, int b, bool even){ x = a; y = b; e = even; }
 	const CLPoint2D& operator=(const CLPoint2D& p);
 	CLPoint2D operator+(const CLPoint2D& p);
 	int x;
 	int y;
-	bool o;
+	bool e;
 };
 #endif
