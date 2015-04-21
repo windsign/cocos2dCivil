@@ -23,9 +23,11 @@ bool CSixEdgeLayer::init()
 
 void CSixEdgeLayer::draw(Renderer *renderer, const Mat4& transform, uint32_t flags)
 {
+	
+	/*
 	glLineWidth(1);
 
-/*
+
 	//画一个多边形
 	ccDrawColor4B(0, 168, 0, 200);
 	glLineWidth(1);
@@ -61,6 +63,11 @@ void CSixEdgeLayer::draw(Renderer *renderer, const Mat4& transform, uint32_t fla
 	}
   */
 
+}
+
+void CSixEdgeLayer::SetRenderWorld(CRenderWorld* p)
+{
+	m_pRenderWorld = p;
 }
 
 

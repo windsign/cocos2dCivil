@@ -19,6 +19,8 @@ bool CGameScene::init()
 	{
 		return false;
 	}
+	m_pRenderWorld = new CRenderWorld;
+
 	m_pGameTerrainLayer = CGameTerrainLayer::create();
 	if (m_pGameTerrainLayer == NULL)
 	{
@@ -32,9 +34,6 @@ bool CGameScene::init()
 		return false;
 	}
 	this->addChild(m_pPawnsLayer);
-
-	
-	m_pRenderWorld = new CRenderWorld;
 
 	m_pPawnMgr = new CPawnMgr;
 	m_pPawnMgr->Init(m_pRenderWorld);

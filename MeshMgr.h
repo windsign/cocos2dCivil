@@ -2,6 +2,9 @@
 #define MESHMGR_H
 
 #include "cocos2d.h"
+#include "Vertex.h"
+
+USING_NS_CC;
 
 enum EMeshType
 {
@@ -21,8 +24,15 @@ public:
 class CMeshMgr
 {
 public:
-
+	CMeshMgr();
+	~CMeshMgr();
+	CMesh* GetMesh(EMeshType emt);
+	void _CreateMesh(EMeshType emt);
+	void _CreateSixEdgeShapeMesh();
+	bool BindBuffer(EMeshType emt);
 private:
-	
+	CMesh m_Meshs[eMT_ALL];
 };
+
+CMeshMgr* GetMeshMgr();
 #endif
