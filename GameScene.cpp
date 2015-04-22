@@ -20,6 +20,7 @@ bool CGameScene::init()
 		return false;
 	}
 	m_pRenderWorld = new CRenderWorld;
+	m_pRenderWorld->InitShaderProgram();
 
 	m_pGameTerrainLayer = CGameTerrainLayer::create();
 	if (m_pGameTerrainLayer == NULL)
@@ -33,6 +34,7 @@ bool CGameScene::init()
 	{
 		return false;
 	}
+	m_pPawnsLayer->SetScene(this, m_pRenderWorld);
 	this->addChild(m_pPawnsLayer);
 
 	m_pPawnMgr = new CPawnMgr;

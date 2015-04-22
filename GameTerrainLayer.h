@@ -4,6 +4,7 @@
 
 USING_NS_CC;
 
+class CRenderWorld;
 
 class CGameTerrainLayer : public Layer
 {
@@ -19,9 +20,11 @@ public:
 	void onTouchesBegan(const std::vector<Touch*>& touches, Event *unused_event);
 
     virtual void visit(Renderer *renderer, const Mat4& parentTransform, uint32_t parentFlags);
+	void SetRenderWorld(CRenderWorld* pRenderWorld);
     void onDraw();
 private:
 	CustomCommand m_command;
+	CRenderWorld* m_pRenderWorld;
 };
 
 #endif

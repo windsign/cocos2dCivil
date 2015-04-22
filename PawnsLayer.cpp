@@ -1,5 +1,6 @@
 #include "PawnsLayer.h"
-
+#include "RenderWorld.h"
+#include "GameScene.h"
 
 CPawnsLayer::CPawnsLayer(void)
 {
@@ -38,5 +39,17 @@ void CPawnsLayer::visit(Renderer *renderer, const Mat4& transform, uint32_t pare
 
 void CPawnsLayer::onDraw()
 {
+	auto glProgram = m_pRenderWorld->GetShaderProgram(eST_Pawn);
+	glProgram->use();
+	glProgram->setUniformsForBuiltins();
 
+	m_pRenderWorld->Draw(eST_Pawn);
+}
+
+void CPawnsLayer::SetScene(CGameScene* pGS, CRenderWorld* pRW)
+{
+	m_pGameScene = pGS;
+	m_pRenderWorld = pRW;
+	GLProgram* p_glProgram = m_pRenderWorld->GetShaderProgram(eST_Pawn);
+	setGLProgram(p_glProgram);
 }

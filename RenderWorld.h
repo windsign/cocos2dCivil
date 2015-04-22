@@ -25,10 +25,12 @@ public:
 	void Init();
 	void InitShaderProgram();
 	GLProgram* GetShaderProgram(EShaderType e);
+	void Draw(EShaderType eST);
 private:
 	map<int, CRenderObject*> m_mapRenderObject;
 	int m_iCurRenderObjectIndex;
 	GLProgram* m_pGLProgram[eST_ALL];
 };
+
 
 #endif

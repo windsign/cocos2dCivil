@@ -2,6 +2,7 @@
 #include "SixEdgeMath.h"
 
 //const float g_sqrt3 = 1.732f;
+#include "RenderWorld.h"
 
 CSixEdgeLayer::CSixEdgeLayer()
 {
@@ -23,7 +24,7 @@ bool CSixEdgeLayer::init()
 
 void CSixEdgeLayer::draw(Renderer *renderer, const Mat4& transform, uint32_t flags)
 {
-	
+
 	/*
 	glLineWidth(1);
 
@@ -68,6 +69,22 @@ void CSixEdgeLayer::draw(Renderer *renderer, const Mat4& transform, uint32_t fla
 void CSixEdgeLayer::SetRenderWorld(CRenderWorld* p)
 {
 	m_pRenderWorld = p;
+	GLProgram* p_glProgram = m_pRenderWorld->GetShaderProgram(eST_Pawn);
+	setGLProgram(p_glProgram);
 }
 
+void CSixEdgeLayer::visit(Renderer *renderer, const Mat4& parentTransform, uint32_t parentFlags)
+{
+	Layer::visit(renderer, parentTransform, parentFlags);
+	m_command.init(_globalZOrder);
+	m_command.func = CC_CALLBACK_0(CSixEdgeLayer::onDraw, this);
+	Director::getInstance()->getRenderer()->addCommand(&m_command);
+}
+
+void CSixEdgeLayer::onDraw()
+{
+	auto glProgram = m_pRenderWorld->GetShaderProgram(eST_Pawn);
+	glProgram->use();
+	glProgram->setUniformsForBuiltins();
+}
 

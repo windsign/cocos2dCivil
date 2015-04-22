@@ -16,9 +16,11 @@ public:
 	CREATE_FUNC(CSixEdgeLayer);
 	void draw(Renderer *renderer, const Mat4& transform, uint32_t flags);
 	void SetRenderWorld(CRenderWorld* p);
-
+	virtual void visit(Renderer *renderer, const Mat4& parentTransform, uint32_t parentFlags);
+	void onDraw();
 private:
 	CRenderWorld*	m_pRenderWorld;
+	CustomCommand	m_command;
 };
 
 #endif

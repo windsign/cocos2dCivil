@@ -4,6 +4,8 @@
 
 USING_NS_CC;
 
+class CRenderWorld;
+class CGameScene;
 
 class CPawnsLayer : public Layer
 {
@@ -20,8 +22,11 @@ public:
 
 	virtual void visit(Renderer *renderer, const Mat4& parentTransform, uint32_t parentFlags);
 	void onDraw();
+	void SetScene(CGameScene* pGS, CRenderWorld* pRW);
 private:
 	CustomCommand m_command;
+	CRenderWorld* m_pRenderWorld;
+	CGameScene*	  m_pGameScene;
 };
 
 #endif

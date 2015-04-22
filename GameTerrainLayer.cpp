@@ -40,3 +40,9 @@ void CGameTerrainLayer::onDraw()
 {
 
 }
+
+void CGameTerrainLayer::SetRenderWorld(CRenderWorld* pRenderWorld)
+{
+
+}
+
