@@ -30,6 +30,7 @@ public:
 	void _CreateMesh(EMeshType emt);
 	void _CreateSixEdgeShapeMesh();
 	bool BindBuffer(EMeshType emt);
+	void Init();
 private:
 	CMesh m_Meshs[eMT_ALL];
 };

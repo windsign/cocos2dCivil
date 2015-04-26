@@ -25,7 +25,7 @@ bool CPawnsLayer::init()
 
 void CPawnsLayer::onTouchesBegan(const std::vector<Touch*>& touches, Event *unused_event)
 {
-
+	//m_pGameScene->onTouchesBegan(touches, unused_event);
 
 }
 

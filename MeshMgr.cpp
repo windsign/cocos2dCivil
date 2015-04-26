@@ -29,6 +29,12 @@ CPoint2D uvCoordinate[] =
 	{ 0.5f, 1.0f }
 };
 
+void CMeshMgr::Init()
+{
+	_CreateMesh(eMT_SixEdgeShape);
+}
+
+
 void CMeshMgr::_CreateMesh(EMeshType emt)
 {
 	switch (emt)
@@ -45,7 +51,7 @@ void CMeshMgr::_CreateSixEdgeShapeMesh()
 {
 	CMesh& cm = m_Meshs[eMT_SixEdgeShape];
 	resSixEdge res;
-	GetSixEdgeMath()->GetPointByLogicPos(0, 0, true);
+	res = GetSixEdgeMath()->GetPointByLogicPos(0, 0, true);
 
 	float *pf = &res.m_fPoint[0];
 	CVertex seMesh[] =
@@ -75,7 +81,7 @@ void CMeshMgr::_CreateSixEdgeShapeMesh()
 
 bool CMeshMgr::BindBuffer(EMeshType emt)
 {
-	if (emt >= eMT_SixEdgeShape)
+	if (emt >= eMT_ALL)
 	{
 		return false;
 	}

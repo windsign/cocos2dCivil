@@ -3,6 +3,7 @@
 
 CSixEdgeRenderObject::CSixEdgeRenderObject()
 {
+	
 }
 
 CSixEdgeRenderObject::~CSixEdgeRenderObject()

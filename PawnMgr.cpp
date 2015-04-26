@@ -18,6 +18,7 @@ CPawn* CPawnMgr::CreateNewPawn()
 	if (pn)
 	{
 		pn->SetIndex(m_iCurIndex);
+		m_iCurIndex++;
 	}
 	pn->Init(m_pRenderWorld);
 	CLPoint2D pos(0, 0, false);

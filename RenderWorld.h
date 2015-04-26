@@ -26,8 +26,9 @@ public:
 	void InitShaderProgram();
 	GLProgram* GetShaderProgram(EShaderType e);
 	void Draw(EShaderType eST);
+	void SetRenderObjectPos(int idx, EShaderType est);
 private:
-	map<int, CRenderObject*> m_mapRenderObject;
+	map<int, CRenderObject*> m_mapRenderObject[eST_ALL];
 	int m_iCurRenderObjectIndex;
 	GLProgram* m_pGLProgram[eST_ALL];
 };

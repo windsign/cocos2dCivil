@@ -28,4 +28,5 @@ void CPawn::SetPos(CLPoint2D &lp)
 void CPawn::Init(CRenderWorld* renderWorld)
 {
 	m_pRenderWorld = renderWorld;
+	m_iRenderIdx = m_pRenderWorld->AddSixEdgeRenderObject();
 }
