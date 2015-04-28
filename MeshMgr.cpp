@@ -1,7 +1,7 @@
 #include "MeshMgr.h"
 #include "Point2D.h"
 #include "SixEdgeMath.h"
-
+#include <stdio.h>
 
 CMesh::~CMesh()
 {
@@ -44,6 +44,8 @@ void CMeshMgr::_CreateMesh(EMeshType emt)
 			_CreateSixEdgeShapeMesh();
 		}
 		break;
+        default:
+            return;
 	}
 }
 

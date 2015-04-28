@@ -68,7 +68,8 @@ void CRenderWorld::SetRenderObjectPos(int idx, EShaderType est)
 	itor = m_mapRenderObject[est].find(idx);
 	if (itor != m_mapRenderObject[est].end())
 	{
-		(*itor).second->SetPosition(CPoint2D(0, 0));
+        CLPoint2D point(0, 0, true);
+		(*itor).second->SetPosition(point);
 	}
 }
 

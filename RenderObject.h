@@ -11,11 +11,12 @@ class CRenderObject
 public:
 	CRenderObject();
 	virtual ~CRenderObject();
-	virtual void SetPosition(CPoint2D& p){ m_curPos = p; };
+	virtual void SetPosition(CLPoint2D& p){ m_curLogicPos = p; }
 	virtual void CreateVAO(GLProgram* pro){};
 	virtual void Draw(){};
 protected:
 	CPoint2D m_curPos;
+    CLPoint2D m_curLogicPos;
 	GLuint m_iMeshBuffer;
 	GLuint m_ivao;
 	GLProgram* m_pShader;

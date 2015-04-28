@@ -35,5 +35,5 @@ private:
 	CMesh m_Meshs[eMT_ALL];
 };
 
-CMeshMgr* GetMeshMgr();
+extern CMeshMgr* GetMeshMgr();
 #endif
