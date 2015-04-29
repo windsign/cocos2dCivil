@@ -25,10 +25,21 @@ public:
     virtual void visit(Renderer *renderer, const Mat4& parentTransform, uint32_t parentFlags);
     void onDraw();
 
+	void InitNormal();
+	void InitTexture();
+
 private:
     CustomCommand m_command;
     GLuint  m_vao;
     GLuint m_testVao;
+//texute handle
+	GLuint _textureID;
+	GLuint _textureID2;
+//sampler locations
+	GLuint _textureLoc;
+	GLuint _textureLoc2;
+	
+	GLuint _uPos;
 };
 
 #endif // __HELLOWORLD_SCENE_H__
