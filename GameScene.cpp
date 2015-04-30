@@ -20,6 +20,9 @@ bool CGameScene::init()
 	{
 		return false;
 	}
+
+	srand(time(NULL));
+
 	m_pRenderWorld = new CRenderWorld;
 	m_pRenderWorld->InitShaderProgram();
 

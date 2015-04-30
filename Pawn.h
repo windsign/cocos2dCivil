@@ -2,6 +2,7 @@
 #define PAWN_H
 
 #include "Point2D.h"
+#include "PawnAttribute.h"
 
 class CRenderWorld;
 class CPawn
@@ -24,6 +25,8 @@ private:
 //renderobject
 	int m_iRenderIdx;
 	CRenderWorld* m_pRenderWorld;
+//
+	CPawnAttribute m_attribute;
 };
 
 #endif
