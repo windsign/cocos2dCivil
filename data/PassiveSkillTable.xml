@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<PassiveSkills xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<PassiveSkill>
+		<ID>1</ID>
+		<Name>不受反击</Name>
+		<Level>1</Level>
+		<Image>aaa</Image>
+		<Type>1</Type>
+		<Property>1</Property>
+		<Value1>0</Value1>
+		<Value2>0</Value2>
+		<Value3>0</Value3>
+		<AffectRange>1</AffectRange>
+		<Tip>攻击时不会被对方反击</Tip>
+	</PassiveSkill>
+	<PassiveSkill>
+		<ID>2</ID>
+		<Name>先攻</Name>
+		<Level>1</Level>
+		<Image>aaa</Image>
+		<Type>1</Type>
+		<Property>1</Property>
+		<Value1>0</Value1>
+		<Value2>0</Value2>
+		<Value3>0</Value3>
+		<AffectRange>1</AffectRange>
+		<Tip>攻击结算后，才计算受到伤害</Tip>
+	</PassiveSkill>
+</PassiveSkills>

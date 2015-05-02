@@ -2,6 +2,9 @@
 #include "PawnMgr.h"
 #include "RenderWorld.h"
 #include "MeshMgr.h"
+#include "PawnTable.h"
+#include "ActiveSkillTable.h"
+#include "PassiveSkillTable.h"
 
 CGameScene::CGameScene(void)
 {
@@ -66,4 +69,7 @@ void CGameScene::Clear()
 void CGameScene::onTouchesBegan(const std::vector<Touch*>& touches, Event *unused_event)
 {
 	m_pPawnMgr->CreateNewPawn();
+	GetPawnTable()->LoadTable();
+	GetActiveSkillTable()->LoadTable();
+	GetPassiveSkillTable()->LoadTable();
 }

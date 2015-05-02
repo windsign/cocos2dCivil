@@ -2,7 +2,10 @@
     <Pawn>
 		<ID></ID>
         <name></name>
+		<Level></Level>
         <Image></Image>
+		<Health></Health>
+		<Mana></Mana>
         <Attack></Attack>
 		<Defence></Defence>
 		<MoveCount></MoveCount>
@@ -17,11 +20,15 @@
 		<PassiveSkill5></PassiveSkill5>
 		<PassiveSkill6></PassiveSkill6>
 		<PassiveSkill7></PassiveSkill7>
+		<Tip></Tip>
     </Pawn>
     <Pawn>
 		<ID></ID>
         <name></name>
+		<Level></Level>
         <Image></Image>
+		<Health></Health>
+		<Mana></Mana>
         <Attack></Attack>
 		<Defence></Defence>
 		<MoveCount></MoveCount>
@@ -36,5 +43,6 @@
 		<PassiveSkill5></PassiveSkill5>
 		<PassiveSkill6></PassiveSkill6>
 		<PassiveSkill7></PassiveSkill7>
+		<Tip></Tip>
     </Pawn>
 </Pawns>

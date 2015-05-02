@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ActiveSkills xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<ActiveSkill>
+		<ID>1</ID>
+		<Name>火球术</Name>
+		<Level>1</Level>
+		<Image>fireball</Image>
+		<ColdDown>2</ColdDown>
+		<Type>1</Type>
+		<Property>1</Property>
+		<Value1>24</Value1>
+		<Value2>0</Value2>
+		<Value3>0</Value3>
+		<Distance>3</Distance>
+		<AffectRange>1</AffectRange>
+		<Tip>火球术，最基本的攻击法术</Tip>
+	</ActiveSkill>
+	<ActiveSkill>
+		<ID>2</ID>
+		<Name>寒冰箭</Name>
+		<Level>1</Level>
+		<Image>icearrow</Image>
+		<ColdDown>3</ColdDown>
+		<Type>1</Type>
+		<Property>2</Property>
+		<Value1>18</Value1>
+		<Value2>1</Value2>
+		<Value3>0</Value3>
+		<Distance>3</Distance>
+		<AffectRange>1</AffectRange>
+		<Tip>寒冰箭，可以附加减速效果</Tip>
+	</ActiveSkill>
+</ActiveSkills>

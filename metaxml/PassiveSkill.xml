@@ -1,0 +1,29 @@
+<PassiveSkills>
+	<PassiveSkill>
+		<ID></ID>
+		<Name></Name>
+		<Level></Level>
+		<Image></Image>
+		<Type></Type>
+		<Property></Property>
+		<Value1></Value1>
+		<Value2></Value2>
+		<Value3></Value3>
+		<AffectRange></AffectRange>
+		<Tip></Tip>
+	</PassiveSkill>
+	
+	<PassiveSkill>
+		<ID></ID>
+		<Name></Name>
+		<Level></Level>
+		<Image></Image>
+		<Type></Type>
+		<Property></Property>
+		<Value1></Value1>
+		<Value2></Value2>
+		<Value3></Value3>
+		<AffectRange></AffectRange>
+		<Tip></Tip>
+	</PassiveSkill>
+</PassiveSkills>

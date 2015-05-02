@@ -1,0 +1,32 @@
+<ActiveSkills>
+	<ActiveSkill>
+		<ID></ID>
+		<Name></Name>
+		<Level></Level>
+		<Image></Image>
+		<ColdDown></ColdDown>
+		<Type></Type>
+		<Property></Property>
+		<Value1></Value1>
+		<Value2></Value2>
+		<Value3></Value3>
+		<Distance></Distance>
+		<AffectRange></AffectRange>
+		<Tip></Tip>
+	</ActiveSkill>
+	<ActiveSkill>
+		<ID></ID>
+		<Name></Name>
+		<Level></Level>
+		<Image></Image>
+		<ColdDown></ColdDown>
+		<Type></Type>
+		<Property></Property>
+		<Value1></Value1>
+		<Value2></Value2>
+		<Value3></Value3>
+		<Distance></Distance>
+		<AffectRange></AffectRange>
+		<Tip></Tip>
+	</ActiveSkill>
+</ActiveSkills>
