@@ -5,7 +5,7 @@
 #include "tinystr.h"
 #include <vector>
 #include <string>
-#include <hash_map>
+#include <map>
 
 struct CActiveSkillElement
 {
@@ -29,7 +29,7 @@ public:
 	~CActiveSkillTable();
 	bool LoadTable();
 private:
-	std::hash_map<int, CActiveSkillElement> m_activeSkillElement;
+	std::map<int, CActiveSkillElement> m_activeSkillElement;
 };
 
 CActiveSkillTable* GetActiveSkillTable();

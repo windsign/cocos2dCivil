@@ -151,8 +151,8 @@ bool HelloWorld::init()
         return false;
     }
  
-	//InitNormal();    
-	InitTexture();
+	InitNormal();    
+	//InitTexture();
     
 	EventDispatcher* dispatcher = Director::getInstance()->getEventDispatcher();
 	EventListenerTouchAllAtOnce* listener = EventListenerTouchAllAtOnce::create();

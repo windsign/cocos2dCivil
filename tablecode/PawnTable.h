@@ -5,7 +5,7 @@
 #include "tinystr.h"
 #include <vector>
 #include <string>
-#include <hash_map>
+#include <map>
 
 struct CPawnTableElement
 {
@@ -32,7 +32,7 @@ public:
 	~CPawnTable();
 	bool LoadTable();
 private:
-	std::hash_map<int,CPawnTableElement> m_pawnElement;
+	std::map<int,CPawnTableElement> m_pawnElement;
 };
 
 CPawnTable* GetPawnTable();
