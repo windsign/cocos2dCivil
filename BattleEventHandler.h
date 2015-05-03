@@ -1,6 +1,8 @@
 #ifndef BATTLEEVENTHANDLER_H
 #define BATTLEEVENTHANDLER_H
 
+#include "Point2D.h"
+
 struct PowerHitRes
 {
 	float fAttackValue;
@@ -14,15 +16,15 @@ struct AttackHurtRes
 };
 
 
-
 class CPawnMgr;
 
 class CBattleEventHandler
 {
 public:
 	void Init(CPawnMgr* p);
-	PowerHitRes CalPowerHit(int attackPower, int attackDefence, int counterPower, int counterDefence);
-	AttackHurtRes CalAttackHurt(PowerHitRes hitRes, int attackerHP, int counterHP, float fAttackPercent, float fcounterPercent);
+	PowerHitRes CalNormalPowerHit(int attackPower, int attackDefence, int counterPower, int counterDefence);
+	AttackHurtRes CalNormalAttackHurt(PowerHitRes hitRes, int attackerHP, int counterHP, float fAttackPercent, float fcounterPercent);
+	
 private:
 	CPawnMgr* m_pPawnMgr;
 };
