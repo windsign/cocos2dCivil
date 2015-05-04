@@ -8,7 +8,7 @@ void CBattleEventHandler::Init(CPawnMgr* p)
 
 }
 
-PowerHitRes CBattleEventHandler::CalPowerHit(int attackPower, int attackDefence, int counterPower, int counterDefence)
+PowerHitRes CBattleEventHandler::CalNormalPowerHit(int attackPower, int attackDefence, int counterPower, int counterDefence)
 {
 	float P = (CCRANDOM_0_1() * 100) / 100.0f;
 	float cP = (CCRANDOM_0_1() * 100) / 100.0f;
@@ -19,7 +19,7 @@ PowerHitRes CBattleEventHandler::CalPowerHit(int attackPower, int attackDefence,
 	return res;
 }
 
-AttackHurtRes CBattleEventHandler::CalAttackHurt(PowerHitRes hitRes, int attackerHP, int counterHP, float fAttackPercent, float fcounterPercent)
+AttackHurtRes CBattleEventHandler::CalNormalAttackHurt(PowerHitRes hitRes, int attackerHP, int counterHP, float fAttackPercent, float fcounterPercent)
 {
 	float hpAttackPercent = attackerHP*0.00333f + 0.667f;
 	hpAttackPercent += (fAttackPercent / 100.0f);
@@ -34,3 +34,20 @@ AttackHurtRes CBattleEventHandler::CalAttackHurt(PowerHitRes hitRes, int attacke
 	return res;
 
 }
+
+void CBattleEventHandler::DoAllStartBuff()
+{
+
+}
+
+void CBattleEventHandler::ChangeState(EBattleState es)
+{
+	m_eCurState = es;
+	m_states[m_eCurState].Active();
+}
+
+void CBattleEventHandler::Update(float t)
+{
+	m_states[m_eCurState].Update(t);
+}
+
