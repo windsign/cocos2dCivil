@@ -21,6 +21,16 @@
 		<PassiveSkill6></PassiveSkill6>
 		<PassiveSkill7></PassiveSkill7>
 		<Tip></Tip>
+		<RemoteCounter></RemoteCounter>
+		<VisionField></VisionField>
+		<MoveType></MoveType>
+		<MagicResistance></MagicResistance>
+		<PhysicsResistance></PhysicsResistance>
+		<Morale></Morale>
+		<CritPercent></CritPercent>
+		<CritDamage></CritDamage>
+		<DodgePercent></DodgePercent>
+		<ParryPercent></ParryPercent>
     </Pawn>
     <Pawn>
 		<ID></ID>
@@ -44,5 +54,15 @@
 		<PassiveSkill6></PassiveSkill6>
 		<PassiveSkill7></PassiveSkill7>
 		<Tip></Tip>
+		<RemoteCounter></RemoteCounter>
+		<VisionField></VisionField>
+		<MoveType></MoveType>
+		<MagicResistance></MagicResistance>
+		<PhysicsResistance></PhysicsResistance>
+		<Morale></Morale>
+		<CritPercent></CritPercent>
+		<CritDamage></CritDamage>
+		<DodgePercent></DodgePercent>
+		<ParryPercent></ParryPercent>
     </Pawn>
 </Pawns>

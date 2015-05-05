@@ -22,6 +22,15 @@
 		<PassiveSkill6>0</PassiveSkill6>
 		<PassiveSkill7>0</PassiveSkill7>
 		<Tip>步兵是人族最基本的战斗单位</Tip>
+		<VisionField>2</VisionField>
+		<MoveType>1</MoveType>
+		<MagicResistance>0</MagicResistance>
+		<PhysicsResistance>0</PhysicsResistance>
+		<Morale>0</Morale>
+		<CritPercent>0</CritPercent>
+		<CritDamage>0</CritDamage>
+		<DodgePercent>0</DodgePercent>
+		<ParryPercent>0</ParryPercent>
 	</Pawn>
 	<Pawn>
 		<ID>2</ID>
@@ -45,6 +54,15 @@
 		<PassiveSkill6>0</PassiveSkill6>
 		<PassiveSkill7>0</PassiveSkill7>
 		<Tip>骷髅兵是亡灵族的最基本单位</Tip>
+		<VisionField>2</VisionField>
+		<MoveType>1</MoveType>
+		<MagicResistance>0</MagicResistance>
+		<PhysicsResistance>0</PhysicsResistance>
+		<Morale>0</Morale>
+		<CritPercent>0</CritPercent>
+		<CritDamage>0</CritDamage>
+		<DodgePercent>0</DodgePercent>
+		<ParryPercent>0</ParryPercent>
 	</Pawn>
 	<Pawn>
 		<ID>3</ID>
