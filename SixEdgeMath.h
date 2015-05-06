@@ -29,6 +29,7 @@ public:
 	void SetDefaultEdgeLength(float l){ m_fEdgeLength = l;}
     float GetDefaultEdgeLength(){return m_fEdgeLength;}
 	CLPoint2D GetCell(int sx, int sy);
+	void GetAdjacentCell(CLPoint2D& p, CLPoint2D respoint[]);
 private:
 	float m_fEdgeLength;
 	CMetaSixEdge m_MetaSixEdge;

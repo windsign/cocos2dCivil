@@ -7,6 +7,26 @@ resSixEdge::resSixEdge()
 	memset(m_fPoint, 0, sizeof(m_fPoint));
 }
 
+CLPoint2D evenAdjacentOffset[6] =
+{
+	{ -1, 0, true },
+	{ -1, -1, false },
+	{ 0, -1, false },
+	{ 1, 0, true },
+	{ -1, 1, false },
+	{ 0, 1, false }
+};
+
+CLPoint2D oddAdjacentOffset[6] =
+{
+	{ -1, 0, true },
+	{ 0, -1, false },
+	{ 1, -1, false },
+	{ 1, 0, true },
+	{ 1, 1, false },
+	{ 0, 1, false }
+};
+
 resSixEdge CSixEdgeMath::GetPointByLogicPos(int x, int y, bool isOdd)
 {
 	//区分六边形地图的奇偶
@@ -48,6 +68,20 @@ CPoint2D CSixEdgeMath::GetPoint(CLPoint2D& p, bool isEven)
     
     CPoint2D rp(off_x, off_y);
     return rp;
+}
+
+void CSixEdgeMath::GetAdjacentCell(CLPoint2D& p, CLPoint2D res_point[])
+{
+	if (p.e)
+	{
+		for (int i = 0; i < 6; i++)
+			res_point[i] = p + evenAdjacentOffset[i];
+	}
+	else
+	{
+		for (int i = 0; i < 6; i++)
+			res_point[i] = p + oddAdjacentOffset[i];
+	}
 }
 
 CSixEdgeMath::CSixEdgeMath()

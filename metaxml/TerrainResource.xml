@@ -1,0 +1,17 @@
+<TerrainResources>
+	<TerrainResource>
+		<ID></ID>
+		<Name></Name>
+		<Level></Level>
+		<Image></Image>
+		<Type></Type>
+		<CanBuildingTerrain></CanBuildingTerrain>
+		<CanBuildingVegetation></CanBuildingVegetation>
+		<Output1></Output1>
+		<Output2></Output2>
+		<Output3></Output3>
+		<Output4></Output4>
+		<LifeTime></LifeTime>
+		<Tip></Tip>
+	</TerrainResource>
+</TerrainResources>

@@ -1,0 +1,30 @@
+<TerrainCells>
+	<TerrainCell>
+		<ID></ID>
+		<Name></Name>
+		<Level></Level>
+		<Image></Image>
+		<Type></Type>
+		<ModifyHard></ModifyHard>
+		<CanBuildingType></CanBuildingType>
+		<Output1></Output1>
+		<Output2></Output2>
+		<Output3></Output3>
+		<Output4></Output4>
+		<Tip></Tip>
+	</TerrainCell>
+	<TerrainCell>
+		<ID></ID>
+		<Name></Name>
+		<Level></Level>
+		<Image></Image>
+		<Type></Type>
+		<ModifyHard></ModifyHard>
+		<CanBuildingType></CanBuildingType>
+		<Output1></Output1>
+		<Output2></Output2>
+		<Output3></Output3>
+		<Output4></Output4>
+		<Tip></Tip>
+	</TerrainCell>
+</TerrainCells>
