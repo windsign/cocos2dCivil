@@ -2,14 +2,17 @@
 #define TERRAIN_H
 
 #include "Point2D.h"
+#include "TerrainType.h"
 #include <vector>
 
 struct OneTerrainCell
 {
-	CLPoint2D m_logicPosition;
-	int m_iTerrain;
-	int m_iResource;              //”¿æ√µÿ–Œ◊ ‘¥£¨
-	int m_iBuild;
+     CLPoint2D m_logicPosition;
+     EWeatherType m_eWeather;
+     ETerrainType m_iTerrain;               //Âú∞ÂΩ¢
+     EVegetationType m_iVegetation;            //Ê§çË¢´   
+     EResourceType m_iResource;              //Ê∞∏‰πÖÂú∞ÂΩ¢ËµÑÊ∫êÔºåÂ•áËßÇ
+     EBuildingType m_iBuild;                 //‰∫∫Â∑•Âª∫Á≠ë   
 };
 
 class CTerrain
@@ -17,13 +20,17 @@ class CTerrain
 public:
 
 private:
-	std::vector<std::vector<OneTerrainCell> > m_oddTerrainCell;
-	std::vector<std::vector<OneTerrainCell> > m_evenTerrainCell;
-
-	int m_iOddHeight;
-	int m_iOddWidth;
-	int m_iEvenHeight;
-	int m_iEvenWidth;
+     std::vector<std::vector<OneTerrainCell> > m_odderrainCell;
+     std::vector<std::vector<OneTerrainCell> > m_evenTerrainCell;
+     
+     int m_iOddHeight;
+     int m_iOddWidth;
+     int m_iEvenHeight;
+     int m_iEvenWidth;
+     
+     //20150506
+     bool LoadTerrain(const char* terrainName);
+     OneTerrainCell* GetTerrainCell(CLPoint2D& point);
 };
 
 #endif

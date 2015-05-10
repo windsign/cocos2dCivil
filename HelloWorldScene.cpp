@@ -2,9 +2,12 @@
 #include "AppMacros.h"
 #include <fstream>
 #include "GameScene.h"
+#include "ui/CocosGUI.h"
+#include "cocostudio/CocoStudio.h"
 
 USING_NS_CC;
 using namespace std;
+using namespace cocos2d::ui;
 
 Scene* HelloWorld::scene()
 {
@@ -16,7 +19,21 @@ Scene* HelloWorld::scene()
 
     // add layer as a child to scene
     scene->addChild(layer);
+    /*
+    auto LoginLayer = CSLoader::createNode("login.csb");
+    
+    scene->addChild(LoginLayer);
 
+    auto cNode = (LoginLayer->getChildByTag(92));
+    
+    auto loginButton = dynamic_cast<Button*>(cNode->getChildByTag(93));
+    
+    if (loginButton) {
+        loginButton->addTouchEventListener(CC_CALLBACK_1(HelloWorld::LoginButtonCallBack, this));
+    }
+    */
+    //cNode->getChildrenCount();
+  
     // return the scene
     return scene;
 }
@@ -135,13 +152,15 @@ void HelloWorld::InitTexture()
 	glBindVertexArray(0);
 	glBindBuffer(GL_ARRAY_BUFFER, 0);
 
-	_textureID = Director::getInstance()->getTextureCache()->addImage("bl.png")->getName();
+	_textureID = Director::getInstance()->getTextureCache()->addImage("char2.png")->getName();
 	_textureID2 = Director::getInstance()->getTextureCache()->addImage("char1.png")->getName();
 
 	_textureLoc = glGetUniformLocation(program->getProgram(), "CC_Texture0");
 	_textureLoc2 = glGetUniformLocation(program->getProgram(), "CC_Texture1");
 
 	_uPos = glGetUniformLocation(program->getProgram(), "u_pos");
+    
+    CHECK_GL_ERROR_DEBUG();
 }
 // on "init" you need to initialize your instance
 bool HelloWorld::init()
@@ -151,8 +170,20 @@ bool HelloWorld::init()
         return false;
     }
  
-	InitNormal();    
-	//InitTexture();
+	//InitNormal();
+	InitTexture();
+    
+    auto LoginLayer = CSLoader::createNode("login.csb");
+    
+    addChild(LoginLayer);
+    
+    auto cNode = (LoginLayer->getChildByTag(92));
+    
+    auto loginButton = dynamic_cast<Button*>(cNode->getChildByTag(93));
+    
+    if (loginButton) {
+        loginButton->addTouchEventListener(CC_CALLBACK_1(HelloWorld::LoginButtonCallBack, this));
+    }
     
 	EventDispatcher* dispatcher = Director::getInstance()->getEventDispatcher();
 	EventListenerTouchAllAtOnce* listener = EventListenerTouchAllAtOnce::create();
@@ -192,11 +223,19 @@ void HelloWorld::onDraw()
 	GL::bindTexture2DN(0, _textureID);
 	glUniform1i(_textureID, 0);
 
-	GL::bindTexture2DN(1, _textureID2);
-	glUniform1i(_textureID2, 1);
 
     glDrawElements(GL_TRIANGLES, 12, GL_UNSIGNED_BYTE, (GLvoid*)0);
 
+    CC_INCREMENT_GL_DRAWN_BATCHES_AND_VERTICES(1, 6);
+    
+    uPos[0] = 50;
+    glUniform4fv(_uPos, 1, uPos);
+    
+    GL::bindTexture2DN(0, _textureID2);
+    glUniform1i(_textureID2, 0);
+    
+    glDrawElements(GL_TRIANGLES, 12, GL_UNSIGNED_BYTE, (GLvoid*)0);
+    
     CC_INCREMENT_GL_DRAWN_BATCHES_AND_VERTICES(1, 6);
     
     glBindVertexArray(0);
@@ -216,4 +255,13 @@ void HelloWorld::onTouchesBegan(const std::vector<Touch*>& touches, Event *unuse
 	auto scene = CGameScene::create();
 	auto animationScene = TransitionFade::create(0.5f, scene);
 	Director::getInstance()->replaceScene(animationScene);
+}
+
+void HelloWorld::LoginButtonCallBack(cocos2d::Ref *pSender)
+{
+    auto winSize = Director::getInstance()->getVisibleSize();
+    
+    auto label = Label::create("Login btn clicked!", "Arial", 20);
+    label->setPosition(Point(winSize.width/2, winSize.height/2));
+    this->addChild(label);
 }

@@ -27,7 +27,8 @@ public:
 
 	void InitNormal();
 	void InitTexture();
-
+    
+    void LoginButtonCallBack(cocos2d::Ref* pSender);
 private:
     CustomCommand m_command;
     GLuint  m_vao;
@@ -40,6 +41,8 @@ private:
 	GLuint _textureLoc2;
 	
 	GLuint _uPos;
+    
+    cocos2d::Scene* m_pCurScene;
 };
 
 #endif // __HELLOWORLD_SCENE_H__
