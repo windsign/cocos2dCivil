@@ -1,5 +1,6 @@
 #include "ActiveSkillTable.h"
 #include "cocos2d.h"
+#include "TinyXMLLoad.h"
 
 USING_NS_CC;
 
