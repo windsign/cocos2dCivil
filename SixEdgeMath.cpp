@@ -63,7 +63,7 @@ CPoint2D CSixEdgeMath::GetPoint(CLPoint2D& p, bool isEven)
 	if (!isEven)
     {
         off_y += m_fEdgeLength * 1.5;
-        off_x -= 0.5 * SQRT3 * m_fEdgeLength;
+        off_x += 0.5 * SQRT3 * m_fEdgeLength;
     }
     
     CPoint2D rp(off_x, off_y);
@@ -86,7 +86,7 @@ void CSixEdgeMath::GetAdjacentCell(CLPoint2D& p, CLPoint2D res_point[])
 
 CSixEdgeMath::CSixEdgeMath()
 {
-	m_fEdgeLength = 100.0f;
+	m_fEdgeLength = 20.0f;
 }
 
 
@@ -118,15 +118,15 @@ CSixEdgeMath* GetSixEdgeMath()
 	return g_pSixEdgeMath;
 }
 
-CLPoint2D CSixEdgeMath::GetCell(int sx, int sy)
+void CSixEdgeMath::GetCell(int sx, int sy, CLPoint2D& resLogicPos, CPoint2D& resPos)
 {
 	float f_xtimes = sx / (SQRT3 * m_fEdgeLength);
 	int ox = (int)f_xtimes;
 	int ex = (int)(f_xtimes + 0.5f);
 
-	float f_ytimes = sy / (SQRT3 * m_fEdgeLength);
+	float f_ytimes = sy / (3 * m_fEdgeLength);
 	int oy = (int)f_ytimes;
-	int ey = (int)f_ytimes;
+	int ey = (int)(f_ytimes + 0.5);
 
 	CLPoint2D o_lpoint(ox, oy, false);
 	CLPoint2D e_lpoint(ex, ey, true);
@@ -139,8 +139,15 @@ CLPoint2D CSixEdgeMath::GetCell(int sx, int sy)
 	float d_e = e_point.Distance(scenePoint);
 
 	if (d_o < d_e)
-		return o_lpoint;
-	return e_lpoint;
+    {
+		resLogicPos = o_lpoint;
+        resPos = o_point;
+    }
+    else
+    {
+        resLogicPos = e_lpoint;
+        resPos = e_point;
+    }
 }
 
 

@@ -43,6 +43,11 @@ private:
 	GLuint _uPos;
     
     cocos2d::Scene* m_pCurScene;
+    
+    cocos2d::Label* m_label;
+    
+    float touch_ltotPosX;
+    float touch_ltotPosY;
 };
 
 #endif // __HELLOWORLD_SCENE_H__

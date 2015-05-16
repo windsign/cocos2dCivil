@@ -28,7 +28,7 @@ public:
     CPoint2D GetPoint(CLPoint2D& p, bool isEven = true);
 	void SetDefaultEdgeLength(float l){ m_fEdgeLength = l;}
     float GetDefaultEdgeLength(){return m_fEdgeLength;}
-	CLPoint2D GetCell(int sx, int sy);
+	void GetCell(int sx, int sy, CLPoint2D& resLogicPos, CPoint2D& resPos);
 	void GetAdjacentCell(CLPoint2D& p, CLPoint2D respoint[]);
 private:
 	float m_fEdgeLength;

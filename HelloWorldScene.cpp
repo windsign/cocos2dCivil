@@ -4,6 +4,7 @@
 #include "GameScene.h"
 #include "ui/CocosGUI.h"
 #include "cocostudio/CocoStudio.h"
+#include "SixEdgeMath.h"
 
 USING_NS_CC;
 using namespace std;
@@ -189,7 +190,16 @@ bool HelloWorld::init()
 	EventListenerTouchAllAtOnce* listener = EventListenerTouchAllAtOnce::create();
 	listener->onTouchesBegan = CC_CALLBACK_2(HelloWorld::onTouchesBegan, this);
 	dispatcher->addEventListenerWithSceneGraphPriority(listener, this);
+    
+    auto winSize = Director::getInstance()->getVisibleSize();
 
+    m_label = Label::create("TouchLocation: ", "Arial", 20);
+    m_label->setPosition(Point(winSize.width/2, winSize.height/2));
+    
+    this->addChild(m_label);
+
+    touch_ltotPosX = 0.0f;
+    touch_ltotPosY = 0.0f;
     return true;
     
 }
@@ -217,17 +227,20 @@ void HelloWorld::onDraw()
 
     glBindVertexArray(m_vao);
 
-	float uPos[] = { 100.0f, 100.0f, 0, 0 };
+	float uPos[] = { 0.0f, 0.0f, 0, 0 };
+    uPos[0] = touch_ltotPosX;
+    uPos[1] = touch_ltotPosY;
 	glUniform4fv(_uPos, 1, uPos);
 
-	GL::bindTexture2DN(0, _textureID);
-	glUniform1i(_textureID, 0);
-
+	GL::bindTexture2DN(0, _textureID2);
+    GL::bindTexture2DN(1, _textureID2);
+	glUniform1i(_textureID2, 0);
+    glUniform1i(_textureID2, 1);
 
     glDrawElements(GL_TRIANGLES, 12, GL_UNSIGNED_BYTE, (GLvoid*)0);
 
     CC_INCREMENT_GL_DRAWN_BATCHES_AND_VERTICES(1, 6);
-    
+    /*
     uPos[0] = 50;
     glUniform4fv(_uPos, 1, uPos);
     
@@ -237,9 +250,9 @@ void HelloWorld::onDraw()
     glDrawElements(GL_TRIANGLES, 12, GL_UNSIGNED_BYTE, (GLvoid*)0);
     
     CC_INCREMENT_GL_DRAWN_BATCHES_AND_VERTICES(1, 6);
-    
+    */
     glBindVertexArray(0);
-    CHECK_GL_ERROR_DEBUG();
+    //CHECK_GL_ERROR_DEBUG();
 }
 
 void HelloWorld::visit(Renderer *renderer, const Mat4& transform, uint32_t parentFlags)
@@ -252,9 +265,25 @@ void HelloWorld::visit(Renderer *renderer, const Mat4& transform, uint32_t paren
 
 void HelloWorld::onTouchesBegan(const std::vector<Touch*>& touches, Event *unused_event)
 {
+    /*
 	auto scene = CGameScene::create();
 	auto animationScene = TransitionFade::create(0.5f, scene);
 	Director::getInstance()->replaceScene(animationScene);
+     */
+    std::vector<Touch*>::const_iterator itor;
+    itor = touches.begin();
+    const Vec2 touchLocation = (*itor)->getLocation();
+    CLPoint2D lp;
+    CPoint2D pos;
+    GetSixEdgeMath()->GetCell((int)touchLocation.x,(int)touchLocation.y, lp, pos);
+    
+    char tex[32];
+    sprintf(tex, "location: %d, %d, %d", lp.x, lp.y, lp.e);
+    m_label->setString(tex);
+    touch_ltotPosX = pos.x;
+    touch_ltotPosY = pos.y;
+    //printf("%d, %d, %d", lp.x, lp.y, lp.e);
+
 }
 
 void HelloWorld::LoginButtonCallBack(cocos2d::Ref *pSender)
