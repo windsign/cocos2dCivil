@@ -27,7 +27,7 @@ public:
 	~CPassiveSkillTable();
 	bool LoadTable();
 private:
-	std::map<int, CPassiveSkillElement> m_activeSkillElement;
+	std::map<int, CPassiveSkillElement> m_passiveSkillElement;
 };
 
 CPassiveSkillTable* GetPassiveSkillTable();

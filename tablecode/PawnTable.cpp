@@ -1,5 +1,6 @@
 #include "PawnTable.h"
 #include "cocos2d.h"
+#include "TinyXMLLoad.h"
 
 USING_NS_CC;
 
@@ -58,11 +59,42 @@ bool CPawnTable::LoadTable()
 			cout << attributeOfStudent->Name() << " : " << attributeOfStudent->Value() << std::endl;
 		}
 		*/
-		TiXmlElement* porpertyElement = pawnElement->FirstChildElement();//获得student的第一个联系方式 
+        CPawnTableElement newPTE;
+		TiXmlElement* porpertyElement = pawnElement->FirstChildElement();//获得student的第一个联系方式
+        LOADTIXMLELE(porpertyElement, newPTE.m_iID);
+        LOADTIXMLELE(porpertyElement, newPTE.m_name);
+        LOADTIXMLELE(porpertyElement, newPTE.m_iLevel);
+        LOADTIXMLELE(porpertyElement, newPTE.m_Image);
+        LOADTIXMLELE(porpertyElement, newPTE.m_iHealth);
+        LOADTIXMLELE(porpertyElement, newPTE.m_iMana);
+        LOADTIXMLELE(porpertyElement, newPTE.m_iAttack);
+        LOADTIXMLELE(porpertyElement, newPTE.m_iDefence);
+        LOADTIXMLELE(porpertyElement, newPTE.m_iMoveCount);
+        LOADTIXMLELE(porpertyElement, newPTE.m_iAttackCount);
+        for(int i = 0; i < 3; i++)
+        {
+            LOADTIXMLELE(porpertyElement, newPTE.m_iActiveSkill[i]);
+        }
+        
+        for(int i = 0; i < 7; i++)
+        {
+            LOADTIXMLELE(porpertyElement, newPTE.m_iPassiveSkill[i]);
+        }
+      
+        LoadTiXMLElement(porpertyElement, newPTE.m_tip);
+
+        std::pair<int, CPawnTableElement> newPair(newPTE.m_iID, newPTE);
+        m_pawnElement.insert(newPair);
+        
+        /* //old read the tinyxml
 		for (; porpertyElement != NULL; porpertyElement = porpertyElement->NextSiblingElement()) {
 			std::string contactType = porpertyElement->Value();
 			std::string contactValue = porpertyElement->GetText();
+            int des;
+            LoadTiXMLElement(porpertyElement, des);
+            printf("%d", des);
 		}
+         */
 
 	}
 	return true;

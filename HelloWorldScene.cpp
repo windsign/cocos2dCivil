@@ -265,11 +265,11 @@ void HelloWorld::visit(Renderer *renderer, const Mat4& transform, uint32_t paren
 
 void HelloWorld::onTouchesBegan(const std::vector<Touch*>& touches, Event *unused_event)
 {
-    /*
+    
 	auto scene = CGameScene::create();
 	auto animationScene = TransitionFade::create(0.5f, scene);
 	Director::getInstance()->replaceScene(animationScene);
-     */
+    /* 
     std::vector<Touch*>::const_iterator itor;
     itor = touches.begin();
     const Vec2 touchLocation = (*itor)->getLocation();
@@ -283,6 +283,7 @@ void HelloWorld::onTouchesBegan(const std::vector<Touch*>& touches, Event *unuse
     touch_ltotPosX = pos.x;
     touch_ltotPosY = pos.y;
     //printf("%d, %d, %d", lp.x, lp.y, lp.e);
+     */
 
 }
 

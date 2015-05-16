@@ -64,25 +64,4 @@
 		<DodgePercent>0</DodgePercent>
 		<ParryPercent>0</ParryPercent>
 	</Pawn>
-	<Pawn>
-		<ID>3</ID>
-	</Pawn>
-	<Pawn>
-		<ID>4</ID>
-	</Pawn>
-	<Pawn>
-		<ID>5</ID>
-	</Pawn>
-	<Pawn>
-		<ID>6</ID>
-	</Pawn>
-	<Pawn>
-		<ID>7</ID>
-	</Pawn>
-	<Pawn>
-		<ID>8</ID>
-	</Pawn>
-	<Pawn>
-		<ID>9</ID>
-	</Pawn>
 </Pawns>

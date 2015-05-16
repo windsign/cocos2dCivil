@@ -26,6 +26,8 @@ bool CGameScene::init()
 
 	srand(time(NULL));
 
+    CCFileUtils::sharedFileUtils()->addSearchPath("./data/");
+    
 	m_pRenderWorld = new CRenderWorld;
 	m_pRenderWorld->InitShaderProgram();
 

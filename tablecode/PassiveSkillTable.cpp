@@ -40,12 +40,30 @@ bool CPassiveSkillTable::LoadTable()
 	TiXmlElement *skillElement = rootElement->FirstChildElement("PassiveSkill");
 	for (; skillElement != NULL; skillElement = skillElement->NextSiblingElement())
 	{
+		CPassiveSkillElement newPSE;
 		TiXmlElement* porpertyElement = skillElement->FirstChildElement();
+		LOADTIXMLELE(porpertyElement, newPSE.m_iID);
+		LOADTIXMLELE(porpertyElement, newPSE.m_name);
+		LOADTIXMLELE(porpertyElement, newPSE.m_iLevel);
+		LOADTIXMLELE(porpertyElement, newPSE.m_Image);
+		LOADTIXMLELE(porpertyElement, newPSE.m_iType);
+		LOADTIXMLELE(porpertyElement, newPSE.m_iProperty);
+		for (int i = 0; i < 3; ++i)
+		{
+			LOADTIXMLELE(porpertyElement, newPSE.m_iValue[i]);
+			/* code */
+		}
+		LOADTIXMLELE(porpertyElement, newPSE.m_iAffectRange);
+		LoadTiXMLElement(porpertyElement, newPSE.m_tip);
+		std::pair<int, CPassiveSkillElement> newPair(newPSE.m_iID, newPSE);
+		m_passiveSkillElement.insert(newPair);
+		/*
 		for (; porpertyElement != NULL; porpertyElement = porpertyElement->NextSiblingElement())
 		{
 			std::string contactType = porpertyElement->Value();
 			std::string contactValue = porpertyElement->GetText();
 		}
+		*/
 	}
 	return true;
 }
