@@ -3,7 +3,8 @@
 
 //const float g_sqrt3 = 1.732f;
 #include "RenderWorld.h"
-
+#include "ui/CocosGUI.h"
+#include "cocostudio/CocoStudio.h"
 CSixEdgeLayer::CSixEdgeLayer()
 {
 }
@@ -19,6 +20,9 @@ bool CSixEdgeLayer::init()
 		return false;
 	}
 	GetSixEdgeMath()->SetDefaultEdgeLength(68.0f);
+	auto LoginLayer = CSLoader::createNode("login.csb");
+
+	addChild(LoginLayer);
 	return true;
 }
 

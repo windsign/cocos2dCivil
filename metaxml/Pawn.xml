@@ -3,10 +3,12 @@
 		<ID></ID>
         <name></name>
 		<Level></Level>
+		<race></race>
         <Image></Image>
 		<Health></Health>
 		<Mana></Mana>
         <Attack></Attack>
+		<AttackType></AttackType>
 		<Defence></Defence>
 		<MoveCount></MoveCount>
 		<AttackCount></AttackCount>
@@ -36,10 +38,12 @@
 		<ID></ID>
         <name></name>
 		<Level></Level>
+		<race></race>
         <Image></Image>
 		<Health></Health>
 		<Mana></Mana>
         <Attack></Attack>
+		<AttackType></AttackType>
 		<Defence></Defence>
 		<MoveCount></MoveCount>
 		<AttackCount></AttackCount>

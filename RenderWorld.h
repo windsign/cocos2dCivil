@@ -21,7 +21,7 @@ class CRenderWorld
 public:
 	CRenderWorld();
 	~CRenderWorld();
-	int AddSixEdgeRenderObject();
+	int AddSixEdgeRenderObject(std::string& imageName);
 	void Init();
 	void InitShaderProgram();
 	GLProgram* GetShaderProgram(EShaderType e);

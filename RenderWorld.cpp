@@ -5,11 +5,12 @@
 
 using namespace std;
 
-int CRenderWorld::AddSixEdgeRenderObject()
+int CRenderWorld::AddSixEdgeRenderObject(std::string& imageName)
 {
 	m_iCurRenderObjectIndex++;
 	CRenderObject* p = new CSixEdgeRenderObject;
 	p->CreateVAO(m_pGLProgram[eST_Pawn]);
+	p->CreateTexture(imageName);
 	pair<int, CRenderObject*> new_RO(m_iCurRenderObjectIndex, p);
 	m_mapRenderObject[eST_Pawn].insert(new_RO);
 	return m_iCurRenderObjectIndex;
@@ -24,7 +25,7 @@ void CRenderWorld::Init()
 void CRenderWorld::InitShaderProgram()
 {
 	m_pGLProgram[eST_Pawn] = new GLProgram;
-	m_pGLProgram[eST_Pawn]->initWithFilenames("simplevs.vs", "simplefs.fs");
+	m_pGLProgram[eST_Pawn]->initWithFilenames("texturevs.vs", "texturefs.fs");
 	m_pGLProgram[eST_Pawn]->link();
 	m_pGLProgram[eST_Pawn]->updateUniforms();
 	

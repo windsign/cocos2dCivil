@@ -4,10 +4,12 @@
 		<ID>1</ID>
 		<name>步兵</name>
 		<Level>1</Level>
+		<race>1</race>
 		<Image>Human1</Image>
 		<Health>100</Health>
 		<Mana>0</Mana>
 		<Attack>15</Attack>
+		<AttackType>1</AttackType>
 		<Defence>15</Defence>
 		<MoveCount>2</MoveCount>
 		<AttackCount>1</AttackCount>
@@ -22,8 +24,9 @@
 		<PassiveSkill6>0</PassiveSkill6>
 		<PassiveSkill7>0</PassiveSkill7>
 		<Tip>步兵是人族最基本的战斗单位</Tip>
-		<VisionField>2</VisionField>
-		<MoveType>1</MoveType>
+		<RemoteCounter>2</RemoteCounter>
+		<VisionField>1</VisionField>
+		<MoveType>0</MoveType>
 		<MagicResistance>0</MagicResistance>
 		<PhysicsResistance>0</PhysicsResistance>
 		<Morale>0</Morale>
@@ -36,10 +39,12 @@
 		<ID>2</ID>
 		<name>骷髅兵</name>
 		<Level>1</Level>
+		<race>2</race>
 		<Image>Undead1</Image>
 		<Health>100</Health>
 		<Mana>0</Mana>
 		<Attack>12</Attack>
+		<AttackType>1</AttackType>
 		<Defence>13</Defence>
 		<MoveCount>2</MoveCount>
 		<AttackCount>1</AttackCount>
@@ -54,8 +59,9 @@
 		<PassiveSkill6>0</PassiveSkill6>
 		<PassiveSkill7>0</PassiveSkill7>
 		<Tip>骷髅兵是亡灵族的最基本单位</Tip>
-		<VisionField>2</VisionField>
-		<MoveType>1</MoveType>
+		<RemoteCounter>2</RemoteCounter>
+		<VisionField>1</VisionField>
+		<MoveType>0</MoveType>
 		<MagicResistance>0</MagicResistance>
 		<PhysicsResistance>0</PhysicsResistance>
 		<Morale>0</Morale>

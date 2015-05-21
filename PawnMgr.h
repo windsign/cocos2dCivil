@@ -2,6 +2,7 @@
 #define PAWNMGR_H
 
 #include <map>
+#include "Point2D.h"
 
 class CPawn;
 
@@ -12,8 +13,9 @@ class CPawnMgr
 public:
 	CPawnMgr();
 	~CPawnMgr();
-	CPawn* CreateNewPawn();
+	CPawn* CreateNewPawn(int idx);
 	void Init(CRenderWorld* pRenderWorld);
+	CPawn* GetPawnIndexByLPos(CLPoint2D& lp);
 private:
 //Pawns
 	map<int, CPawn*> m_mapPawns;

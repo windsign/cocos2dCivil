@@ -18,8 +18,12 @@ CPawnAttribute::~CPawnAttribute()
 
 }
 
-void CPawnAttribute::Init(CPawn* pawn)
+void CPawnAttribute::Init(CPawn* pawn, CPawnTableElement* pe)
 {
+	m_iBaseAttribute[ePA_AttackCount] = pe->m_iAttackCount;
+	m_iBaseAttribute[ePA_MoveCount] = pe->m_iMoveCount;
+	m_iBaseAttribute[ePA_Attack] = pe->m_iAttack;
+	m_iBaseAttribute[ePA_Defence] = pe->m_iDefence;
 	m_pPawn = pawn;
 }
 

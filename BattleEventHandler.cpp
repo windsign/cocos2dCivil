@@ -2,6 +2,7 @@
 #include "Pawn.h"
 #include "PawnMgr.h"
 #include "cocos2d.h"
+#include "SixEdgeMath.h"
 
 void CBattleEventHandler::Init(CPawnMgr* p)
 {
@@ -42,6 +43,7 @@ void CBattleEventHandler::DoAllStartBuff()
 
 void CBattleEventHandler::ChangeState(EBattleState es)
 {
+	m_eLastState = m_eCurState;
 	m_eCurState = es;
 	m_states[m_eCurState].Active();
 }
@@ -49,5 +51,20 @@ void CBattleEventHandler::ChangeState(EBattleState es)
 void CBattleEventHandler::Update(float t)
 {
 	m_states[m_eCurState].Update(t);
+	Flush();
 }
+
+void CBattleEventHandler::OnClick(int sx, int sy)
+{
+	CPoint2D pos;
+	GetSixEdgeMath()->GetCell(sx, sy, m_touchPoint, pos);
+	m_bTouch = true;
+}
+
+void CBattleEventHandler::Flush()
+{
+	m_bTouch = false;
+}
+
+
 

@@ -1,6 +1,6 @@
 #ifndef PAWNATTRIBUTE_H
 #define PAWNATTRIBUTE_H
-
+#include "PawnTable.h"
 enum EPawnAttribute
 {
 	ePA_Attack,
@@ -18,7 +18,7 @@ public:
 	~CPawnAttribute();
 	bool CanAct();
 	int GetAttribute(EPawnAttribute e);
-	void Init(CPawn* pawn);
+	void Init(CPawn* pawn, CPawnTableElement* pe);
 private:
 	int m_iBaseAttribute[ePA_All];
 	int m_iAddAttribute[ePA_All];

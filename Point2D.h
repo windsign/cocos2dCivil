@@ -32,6 +32,7 @@ public:
 	CLPoint2D(int a, int b, bool even){ x = a; y = b; e = even; }
 	const CLPoint2D& operator=(const CLPoint2D& p);
 	CLPoint2D operator+(const CLPoint2D& p);
+	bool operator==(const CLPoint2D& p);
 	int x;
 	int y;
 	bool e;

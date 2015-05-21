@@ -15,7 +15,7 @@ enum EBuildingType
      eBT_City,
      eBT_Mine,
      eBT_Trap,
-     eBT_Fort，
+     eBT_Fort,
      eBT_AllBuild
 };
 

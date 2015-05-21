@@ -6,6 +6,12 @@
 #include "ActiveSkillTable.h"
 #include "PassiveSkillTable.h"
 
+
+#include "ui/CocosGUI.h"
+#include "cocostudio/CocoStudio.h"
+
+using namespace cocos2d::ui;
+
 CGameScene::CGameScene(void)
 {
 	m_pGameTerrainLayer = 0;
@@ -56,6 +62,10 @@ bool CGameScene::init()
 	listener->onTouchesBegan = CC_CALLBACK_2(CGameScene::onTouchesBegan, this);
 	dispatcher->addEventListenerWithSceneGraphPriority(listener, this);
 
+	GetPawnTable()->LoadTable();
+	GetActiveSkillTable()->LoadTable();
+	GetPassiveSkillTable()->LoadTable();
+
 	return true;
 }
 
@@ -70,8 +80,5 @@ void CGameScene::Clear()
 
 void CGameScene::onTouchesBegan(const std::vector<Touch*>& touches, Event *unused_event)
 {
-	m_pPawnMgr->CreateNewPawn();
-	GetPawnTable()->LoadTable();
-	GetActiveSkillTable()->LoadTable();
-	GetPassiveSkillTable()->LoadTable();
+	m_pPawnMgr->CreateNewPawn(1);
 }

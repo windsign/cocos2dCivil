@@ -3,6 +3,7 @@
 
 #include "Point2D.h"
 #include "PawnAttribute.h"
+#include "PawnTable.h"
 
 class CRenderWorld;
 class CPawn
@@ -12,9 +13,10 @@ public:
 	~CPawn();
 	void Update(float t);
 	void SetPos(CLPoint2D &lp);
+	CLPoint2D GetPos(){ return m_logicPoint; }
 	void SetIndex(int idx){ m_iIndex = idx; }
 	int GetIndex(){ return m_iIndex; }
-	void Init(CRenderWorld* renderWorld);
+	void Init(CRenderWorld* renderWorld, CPawnTableElement* pe);
 private:
 	int m_iIndex;
 //location
@@ -26,7 +28,9 @@ private:
 	int m_iRenderIdx;
 	CRenderWorld* m_pRenderWorld;
 //
+	CPawnTableElement* m_pPawnElement;
 	CPawnAttribute m_attribute;
+	
 };
 
 #endif

@@ -63,11 +63,13 @@ bool CPawnTable::LoadTable()
 		TiXmlElement* porpertyElement = pawnElement->FirstChildElement();//获得student的第一个联系方式
         LOADTIXMLELE(porpertyElement, newPTE.m_iID);
         LOADTIXMLELE(porpertyElement, newPTE.m_name);
+		LOADTIXMLELE(porpertyElement, newPTE.m_iRace);
         LOADTIXMLELE(porpertyElement, newPTE.m_iLevel);
         LOADTIXMLELE(porpertyElement, newPTE.m_Image);
         LOADTIXMLELE(porpertyElement, newPTE.m_iHealth);
         LOADTIXMLELE(porpertyElement, newPTE.m_iMana);
         LOADTIXMLELE(porpertyElement, newPTE.m_iAttack);
+		LOADTIXMLELE(porpertyElement, newPTE.m_iAttackType);
         LOADTIXMLELE(porpertyElement, newPTE.m_iDefence);
         LOADTIXMLELE(porpertyElement, newPTE.m_iMoveCount);
         LOADTIXMLELE(porpertyElement, newPTE.m_iAttackCount);
@@ -98,4 +100,14 @@ bool CPawnTable::LoadTable()
 
 	}
 	return true;
+}
+
+CPawnTableElement* CPawnTable::GetPawnElement(int idx)
+{
+	std::map<int, CPawnTableElement>::iterator itor = m_pawnElement.find(idx);
+	if (itor != m_pawnElement.end())
+	{
+		return &((*itor).second);
+	}
+	return NULL;
 }

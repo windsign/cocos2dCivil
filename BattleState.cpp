@@ -1,5 +1,6 @@
 #include "BattleState.h"
 #include "BattleEventHandler.h"
+#include "PawnMgr.h"
 
 void State_TurnStart::Active()
 {

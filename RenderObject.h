@@ -12,13 +12,16 @@ public:
 	CRenderObject();
 	virtual ~CRenderObject();
 	virtual void SetPosition(CLPoint2D& p){ m_curLogicPos = p; }
-	virtual void CreateVAO(GLProgram* pro){};
+	virtual void CreateVAO(GLProgram* pro){ m_pShader = pro; }
+	virtual bool CreateTexture(std::string& imageName){ return true; }
 	virtual void Draw(){};
 protected:
 	CPoint2D m_curPos;
     CLPoint2D m_curLogicPos;
 	GLuint m_iMeshBuffer;
 	GLuint m_ivao;
+	GLuint m_iTextureID;
+	GLuint m_iTexLoc;
 	GLProgram* m_pShader;
 };
 

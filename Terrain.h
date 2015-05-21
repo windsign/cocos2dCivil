@@ -3,6 +3,7 @@
 
 #include "Point2D.h"
 #include "TerrainType.h"
+#include "BuildingType.h"
 #include <vector>
 
 struct OneTerrainCell

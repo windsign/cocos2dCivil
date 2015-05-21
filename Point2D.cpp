@@ -80,3 +80,7 @@ CLPoint2D CLPoint2D::operator+(const CLPoint2D& p)
 	return rp;
 }
 
+bool CLPoint2D::operator==(const CLPoint2D& p)
+{
+	return (x == p.x && y == p.y && e == p.e);
+}
