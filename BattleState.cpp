@@ -1,6 +1,7 @@
 #include "BattleState.h"
 #include "BattleEventHandler.h"
 #include "PawnMgr.h"
+#include "Pawn.h"
 
 void State_TurnStart::Active()
 {
@@ -17,6 +18,8 @@ void State_PlayerTurnStart::Active()
 {
 	//显示“我方回合开始”
 	m_pEventHandler->ChangeState(eBS_WaitForClick);
+
+
 }
 
 void State_PlayerTurnStart::Update(float t)
@@ -31,6 +34,21 @@ void State_WaitForClick::Active()
 
 void State_WaitForClick::Update(float t)
 {
+	if (m_pEventHandler->m_bTouch)
+	{
+		CPawn* pPawn = m_pEventHandler->GetPawnMgr()->GetPawnIndexByLPos(m_pEventHandler->m_touchPoint);
+
+		if (pPawn != 0)
+		{
+			//显示移动等相关信息
+
+			if (pPawn->GetNation() == )
+				m_pEventHandler->SetCurClickPawnIdx(pPawn->GetIndex());
+			m_pEventHandler->ChangeState(eBS_PawnClicked);
+			return;
+		}
+
+	}
 
 }
 

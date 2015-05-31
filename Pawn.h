@@ -4,6 +4,7 @@
 #include "Point2D.h"
 #include "PawnAttribute.h"
 #include "PawnTable.h"
+#include "PlayerEnum.h"
 
 class CRenderWorld;
 class CPawn
@@ -17,8 +18,12 @@ public:
 	void SetIndex(int idx){ m_iIndex = idx; }
 	int GetIndex(){ return m_iIndex; }
 	void Init(CRenderWorld* renderWorld, CPawnTableElement* pe);
+	void SetColor(EPlayerColor e){ m_eColor = e; }
+	EPlayerColor GetColor(){ return m_eColor; }
+
 private:
 	int m_iIndex;
+	EPlayerColor m_eColor;
 //location
 	CLPoint2D m_logicPoint;
 //fight

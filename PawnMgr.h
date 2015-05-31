@@ -21,5 +21,6 @@ private:
 	map<int, CPawn*> m_mapPawns;
 	int m_iCurIndex;
 	CRenderWorld* m_pRenderWorld;
+
 };
 #endif
