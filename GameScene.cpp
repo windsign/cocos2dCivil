@@ -70,7 +70,7 @@ bool CGameScene::init()
 	GetPassiveSkillTable()->LoadTable();
 
 	m_pPawnMgr->CreateNewPawn(1);
-
+	this->scheduleUpdate();
 	return true;
 }
 
@@ -86,4 +86,13 @@ void CGameScene::Clear()
 void CGameScene::onTouchesBegan(const std::vector<Touch*>& touches, Event *unused_event)
 {
 	//
+	std::vector<Touch*>::const_iterator itor;
+	itor = touches.begin();
+	const Vec2 touchLocation = (*itor)->getLocation();
+	m_pEventHandler->OnClick(touchLocation.x, touchLocation.y);
+}
+
+void CGameScene::update(float frametime)
+{
+	int i = 0;
 }

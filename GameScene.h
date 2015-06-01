@@ -25,6 +25,8 @@ public:
 
 	void onTouchesBegan(const std::vector<Touch*>& touches, Event *unused_event);
 
+	void update(float t);
+
 public:
 	void Clear();
 private:

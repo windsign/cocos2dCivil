@@ -11,7 +11,7 @@ void State_TurnStart::Active()
 
 void State_TurnStart::Update(float t)
 {
-
+	m_pEventHandler->ChangeState(eBS_PlayerTurnStart);
 }
 
 void State_PlayerTurnStart::Active()

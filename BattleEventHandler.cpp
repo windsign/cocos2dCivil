@@ -42,6 +42,8 @@ void CBattleEventHandler::Init(CPawnMgr* p, EPlayerColor localplayercolor)
 	m_states[eBS_TurnEnd] = new State_TurnEnd;
 	m_states[eBS_TurnEnd]->SetContext(this);
 
+	m_eCurState = m_eLastState = eBS_TurnStart;
+
 }
 
 PowerHitRes CBattleEventHandler::CalNormalPowerHit(int attackPower, int attackDefence, int counterPower, int counterDefence)
