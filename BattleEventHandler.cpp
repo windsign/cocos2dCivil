@@ -8,6 +8,40 @@ void CBattleEventHandler::Init(CPawnMgr* p, EPlayerColor localplayercolor)
 {
 	m_pPawnMgr = p;
 	m_eLocalPlayerColor = localplayercolor;
+
+	m_states[eBS_TurnStart] = new State_TurnStart;
+	m_states[eBS_TurnStart]->SetContext(this);
+
+	m_states[eBS_PlayerTurnStart] = new State_PlayerTurnStart;
+	m_states[eBS_PlayerTurnStart]->SetContext(this);
+
+	m_states[eBS_WaitForClick] = new State_WaitForClick;
+	m_states[eBS_WaitForClick]->SetContext(this);
+
+	m_states[eBS_PawnClicked] = new State_PawnClicked;
+	m_states[eBS_PawnClicked]->SetContext(this);
+
+	m_states[eBS_PawnAttack] = new State_PawnAttack;
+	m_states[eBS_PawnAttack]->SetContext(this);
+
+	m_states[eBS_PawnHurt] = new State_PawnHurt;
+	m_states[eBS_PawnHurt]->SetContext(this);
+
+	m_states[eBS_PawnDie] = new State_PawnDie;
+	m_states[eBS_PawnDie]->SetContext(this);
+
+	m_states[eBS_PawnMove] = new State_PawnMove;
+	m_states[eBS_PawnMove]->SetContext(this);
+
+	m_states[eBS_PawnMoveEnd] = new State_PawnMoveEnd;
+	m_states[eBS_PawnMoveEnd]->SetContext(this);
+
+	m_states[eBS_PlayerTurnEnd] = new State_PlayerTurnEnd;
+	m_states[eBS_PlayerTurnEnd]->SetContext(this);
+
+	m_states[eBS_TurnEnd] = new State_TurnEnd;
+	m_states[eBS_TurnEnd]->SetContext(this);
+
 }
 
 PowerHitRes CBattleEventHandler::CalNormalPowerHit(int attackPower, int attackDefence, int counterPower, int counterDefence)
@@ -46,12 +80,12 @@ void CBattleEventHandler::ChangeState(EBattleState es)
 {
 	m_eLastState = m_eCurState;
 	m_eCurState = es;
-	m_states[m_eCurState].Active();
+	m_states[m_eCurState]->Active();
 }
 
 void CBattleEventHandler::Update(float t)
 {
-	m_states[m_eCurState].Update(t);
+	m_states[m_eCurState]->Update(t);
 	Flush();
 }
 

@@ -30,6 +30,7 @@ bool AppDelegate::applicationDidFinishLaunching() {
     auto glview = director->getOpenGLView();
     if(!glview) {
         glview = GLViewImpl::create("Cpp Empty Test");
+		glview->setFrameSize(640, 960);
         director->setOpenGLView(glview);
     }
 
@@ -40,7 +41,8 @@ bool AppDelegate::applicationDidFinishLaunching() {
     // a bug in DirectX 11 level9-x on the device prevents ResolutionPolicy::NO_BORDER from working correctly
     glview->setDesignResolutionSize(designResolutionSize.width, designResolutionSize.height, ResolutionPolicy::SHOW_ALL);
 #else
-    glview->setDesignResolutionSize(designResolutionSize.width, designResolutionSize.height, ResolutionPolicy::NO_BORDER);
+    //glview->setDesignResolutionSize(designResolutionSize.width, designResolutionSize.height, ResolutionPolicy::NO_BORDER);
+	glview->setDesignResolutionSize(640, 960, ResolutionPolicy::NO_BORDER);
 #endif
 
 	Size frameSize = glview->getFrameSize();
@@ -51,7 +53,7 @@ bool AppDelegate::applicationDidFinishLaunching() {
     // If the resource size is different from design resolution size, you need to set contentScaleFactor.
     // We use the ratio of resource's height to the height of design resolution,
     // this can make sure that the resource's height could fit for the height of design resolution.
-
+	/*
     // if the frame's height is larger than the height of medium resource size, select large resource.
 	if (frameSize.height > mediumResource.size.height)
 	{
@@ -73,7 +75,7 @@ bool AppDelegate::applicationDidFinishLaunching() {
 
         director->setContentScaleFactor(MIN(smallResource.size.height/designResolutionSize.height, smallResource.size.width/designResolutionSize.width));
     }
-    
+    */
     // set searching path
     FileUtils::getInstance()->setSearchPaths(searchPath);
 	

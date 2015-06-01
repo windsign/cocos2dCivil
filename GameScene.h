@@ -9,6 +9,7 @@ USING_NS_CC;
 
 class CPawnMgr;
 class CRenderWorld;
+class CBattleEventHandler;
 
 class CGameScene : public Scene{
 public:
@@ -34,6 +35,7 @@ private:
 	//logic 
 	CPawnMgr*			m_pPawnMgr;
 	CRenderWorld*		m_pRenderWorld;
+	CBattleEventHandler* m_pEventHandler;
 	//	CSixEdgeLayer* m_sixEdgeLayer;
 
 };

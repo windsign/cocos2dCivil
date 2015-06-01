@@ -44,7 +44,7 @@ private:
 	CPawnMgr* m_pPawnMgr;
 	EBattleState m_eCurState;
 	EBattleState m_eLastState;
-	State_Base m_states[eBS_All];
+	State_Base* m_states[eBS_All];
 	int m_iCurClickedPawnIdx;
 	EPlayerColor m_eLocalPlayerColor;
 

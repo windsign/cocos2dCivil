@@ -6,8 +6,11 @@ class CBattleEventHandler;
 class State_Base
 {
 public:
-	virtual void Active(); 
-	virtual void Update(float t); 
+	virtual void Active() = 0; 
+	virtual void Update(float t) = 0; 
+	virtual void SetContext(CBattleEventHandler* p) = 0;
+	virtual const char* GetStateName() = 0;
+
 };
 
 #define BATTLESTATESTART(name) class State_##name : public State_Base{\

@@ -5,7 +5,7 @@
 #include "PawnTable.h"
 #include "ActiveSkillTable.h"
 #include "PassiveSkillTable.h"
-
+#include "BattleEventHandler.h"
 
 #include "ui/CocosGUI.h"
 #include "cocostudio/CocoStudio.h"
@@ -57,6 +57,9 @@ bool CGameScene::init()
 	m_pPawnMgr = new CPawnMgr;
 	m_pPawnMgr->Init(m_pRenderWorld);
 
+	m_pEventHandler = new CBattleEventHandler;
+	m_pEventHandler->Init(m_pPawnMgr, ePC_Blue);
+
 	EventDispatcher* dispatcher = Director::getInstance()->getEventDispatcher();
 	EventListenerTouchAllAtOnce* listener = EventListenerTouchAllAtOnce::create();
 	listener->onTouchesBegan = CC_CALLBACK_2(CGameScene::onTouchesBegan, this);
@@ -65,6 +68,8 @@ bool CGameScene::init()
 	GetPawnTable()->LoadTable();
 	GetActiveSkillTable()->LoadTable();
 	GetPassiveSkillTable()->LoadTable();
+
+	m_pPawnMgr->CreateNewPawn(1);
 
 	return true;
 }
@@ -80,5 +85,5 @@ void CGameScene::Clear()
 
 void CGameScene::onTouchesBegan(const std::vector<Touch*>& touches, Event *unused_event)
 {
-	m_pPawnMgr->CreateNewPawn(1);
+	//
 }
