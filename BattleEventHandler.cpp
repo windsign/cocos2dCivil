@@ -4,9 +4,10 @@
 #include "cocos2d.h"
 #include "SixEdgeMath.h"
 
-void CBattleEventHandler::Init(CPawnMgr* p)
+void CBattleEventHandler::Init(CPawnMgr* p, EPlayerColor localplayercolor)
 {
-
+	m_pPawnMgr = p;
+	m_eLocalPlayerColor = localplayercolor;
 }
 
 PowerHitRes CBattleEventHandler::CalNormalPowerHit(int attackPower, int attackDefence, int counterPower, int counterDefence)

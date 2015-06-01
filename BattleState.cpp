@@ -42,8 +42,8 @@ void State_WaitForClick::Update(float t)
 		{
 			//显示移动等相关信息
 
-			if (pPawn->GetNation() == )
-				m_pEventHandler->SetCurClickPawnIdx(pPawn->GetIndex());
+			if (pPawn->GetColor() == m_pEventHandler->GetLocalPlayerColor())
+				m_pEventHandler->SetCurClickPawn(pPawn->GetIndex());
 			m_pEventHandler->ChangeState(eBS_PawnClicked);
 			return;
 		}
@@ -59,6 +59,20 @@ void State_PawnClicked::Active()
 
 void State_PawnClicked::Update(float t)
 {
+	if (m_pEventHandler->m_bTouch)
+	{
+		int curClickPawn = m_pEventHandler->GetCurClickPawn();
+		CPawn* p = m_pEventHandler->GetPawnMgr()->GetPawnIndexByLPos(m_pEventHandler->m_touchPoint);
+
+		if (p != 0)
+		{
+			m_pEventHandler->SetCurClickPawn(p->GetIndex());
+			m_pEventHandler->ChangeState(eBS_PawnClicked);
+			return;
+		}
+		//没有点到一个pawn
+		//m_pEventHandler->
+	}
 
 }
 

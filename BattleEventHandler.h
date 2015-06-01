@@ -4,6 +4,7 @@
 #include "Point2D.h"
 #include "BattleStateEnum.h"
 #include "BattleState.h"
+#include "PlayerEnum.h"
 
 struct PowerHitRes
 {
@@ -23,7 +24,7 @@ class CPawnMgr;
 class CBattleEventHandler
 {
 public:
-	void Init(CPawnMgr* p);
+	void Init(CPawnMgr* p, EPlayerColor localplayercolor);
 	PowerHitRes CalNormalPowerHit(int attackPower, int attackDefence, int counterPower, int counterDefence);
 	AttackHurtRes CalNormalAttackHurt(PowerHitRes hitRes, int attackerHP, int counterHP, float fAttackPercent, float fcounterPercent);
 	void DoAllStartBuff();
@@ -34,6 +35,7 @@ public:
 	CPawnMgr* GetPawnMgr(){ return m_pPawnMgr; }
 	void SetCurClickPawn(int idx){ m_iCurClickedPawnIdx = idx; }
 	int GetCurClickPawn(){ return m_iCurClickedPawnIdx; }
+	EPlayerColor GetLocalPlayerColor(){ return m_eLocalPlayerColor; }
 	void Flush();
 public:
 	bool m_bTouch;
@@ -44,6 +46,7 @@ private:
 	EBattleState m_eLastState;
 	State_Base m_states[eBS_All];
 	int m_iCurClickedPawnIdx;
+	EPlayerColor m_eLocalPlayerColor;
 
 };
 

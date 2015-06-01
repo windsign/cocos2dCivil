@@ -20,4 +20,5 @@ CPlayer::~CPlayer()
 bool CPlayer::Init(EPlayerColor e)
 {
 	m_ePlayerColor = e;
+	return true;
 }
