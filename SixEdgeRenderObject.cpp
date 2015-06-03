@@ -44,7 +44,7 @@ void CSixEdgeRenderObject::Draw()
 {
 	glBindVertexArray(m_ivao);
 
-	float uPos[] = { 50.0f, 50.0f, 0, 0 };
+	float uPos[] = { 0.0f, 0.0f, 0, 0 };
 	uPos[0] += m_wishPos.x;
 	uPos[1] += m_wishPos.y;
 	glUniform4fv(m_iUniformPosLoc, 1, uPos);

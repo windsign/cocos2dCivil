@@ -3,6 +3,7 @@
 
 #include <map>
 #include "cocos2d.h"
+#include "Point2D.h"
 
 USING_NS_CC;
 
@@ -26,7 +27,7 @@ public:
 	void InitShaderProgram();
 	GLProgram* GetShaderProgram(EShaderType e);
 	void Draw(EShaderType eST);
-	void SetRenderObjectPos(int idx, EShaderType est);
+	void SetRenderObjectPos(int idx, EShaderType est, CLPoint2D& pos);
 private:
 	map<int, CRenderObject*> m_mapRenderObject[eST_ALL];
 	int m_iCurRenderObjectIndex;

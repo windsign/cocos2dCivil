@@ -19,13 +19,16 @@ CPawn* CPawnMgr::CreateNewPawn(int idx)
 	if (pn)
 	{
 		pn->SetIndex(m_iCurIndex);
-		m_iCurIndex++;
 
 		CPawnTableElement* pe = GetPawnTable()->GetPawnElement(idx);
 		pn->Init(m_pRenderWorld, pe);
 
-		CLPoint2D pos(0, 0, false);
+		CLPoint2D pos(0, 0, true);
 		pn->SetPos(pos);
+
+		//std::pair<int, CPawn*> new
+		m_mapPawns.insert(make_pair(m_iCurIndex, pn));
+		m_iCurIndex++;
 	}
 
 	return pn;

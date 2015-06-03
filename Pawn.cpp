@@ -23,7 +23,7 @@ void CPawn::Update(float t)
 void CPawn::SetPos(CLPoint2D &lp)
 {
 	m_logicPoint = lp;
-	m_pRenderWorld->SetRenderObjectPos(m_iRenderIdx, eST_Pawn);
+	m_pRenderWorld->SetRenderObjectPos(m_iRenderIdx, eST_Pawn, lp);
 }
 
 void CPawn::Init(CRenderWorld* renderWorld, CPawnTableElement* pe)

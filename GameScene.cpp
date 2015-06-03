@@ -94,5 +94,6 @@ void CGameScene::onTouchesBegan(const std::vector<Touch*>& touches, Event *unuse
 
 void CGameScene::update(float frametime)
 {
-	int i = 0;
+	//int i = 0;
+	m_pEventHandler->Update(frametime);
 }
