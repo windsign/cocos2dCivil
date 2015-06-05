@@ -22,6 +22,8 @@ protected:
 	GLuint m_ivao;
 	GLuint m_iTextureID;
 	GLuint m_iTexLoc;
+	GLuint m_iColorMaskID;
+	GLuint m_iColorMaskLoc;
 	GLProgram* m_pShader;
 };
 

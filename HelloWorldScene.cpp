@@ -232,9 +232,9 @@ void HelloWorld::onDraw()
     uPos[1] = touch_ltotPosY;
 	glUniform4fv(_uPos, 1, uPos);
 
-	GL::bindTexture2DN(0, _textureID2);
+	GL::bindTexture2DN(0, _textureID);
     GL::bindTexture2DN(1, _textureID2);
-	glUniform1i(_textureID2, 0);
+	glUniform1i(_textureID, 0);
     glUniform1i(_textureID2, 1);
 
     glDrawElements(GL_TRIANGLES, 12, GL_UNSIGNED_BYTE, (GLvoid*)0);

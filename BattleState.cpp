@@ -43,8 +43,11 @@ void State_WaitForClick::Update(float t)
 			//显示移动等相关信息
 
 			if (pPawn->GetColor() == m_pEventHandler->GetLocalPlayerColor())
-				m_pEventHandler->SetCurClickPawn(pPawn->GetIndex());
-			m_pEventHandler->ChangeState(eBS_PawnClicked);
+			{
+				m_pEventHandler->ChangeState(eBS_PawnClicked);
+			}
+			m_pEventHandler->SetCurClickPawn(pPawn->GetIndex());
+			
 			return;
 		}
 
@@ -72,6 +75,8 @@ void State_PawnClicked::Update(float t)
 		}
 		//没有点到一个pawn
 		//m_pEventHandler->
+		CPawn* pCurClickP = m_pEventHandler->GetPawnMgr()->GetPawnByIndex(curClickPawn);
+		pCurClickP->SetPos(CLPoint2D(2, 2, true));
 	}
 
 }

@@ -25,7 +25,7 @@ CPawn* CPawnMgr::CreateNewPawn(int idx)
 
 		CLPoint2D pos(0, 0, true);
 		pn->SetPos(pos);
-
+		pn->SetColor(ePC_Blue);
 		//std::pair<int, CPawn*> new
 		m_mapPawns.insert(make_pair(m_iCurIndex, pn));
 		m_iCurIndex++;
@@ -51,4 +51,15 @@ CPawn* CPawnMgr::GetPawnIndexByLPos(CLPoint2D& lp)
 		}
 	}
 	return 0;
+}
+
+CPawn* CPawnMgr::GetPawnByIndex(int idx)
+{
+	map<int, CPawn*>::iterator itor;
+	itor = m_mapPawns.find(idx);
+	if (itor != m_mapPawns.end())
+	{
+		return (itor)->second;
+	}
+	return NULL;
 }

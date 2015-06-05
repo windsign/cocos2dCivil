@@ -16,6 +16,7 @@ public:
 	CPawn* CreateNewPawn(int idx);
 	void Init(CRenderWorld* pRenderWorld);
 	CPawn* GetPawnIndexByLPos(CLPoint2D& lp);
+	CPawn* GetPawnByIndex(int idx);
 private:
 //Pawns
 	map<int, CPawn*> m_mapPawns;

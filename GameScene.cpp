@@ -6,6 +6,7 @@
 #include "ActiveSkillTable.h"
 #include "PassiveSkillTable.h"
 #include "BattleEventHandler.h"
+#include "SixEdgeMath.h"
 
 #include "ui/CocosGUI.h"
 #include "cocostudio/CocoStudio.h"
@@ -33,6 +34,8 @@ bool CGameScene::init()
 	srand(time(NULL));
 
     CCFileUtils::sharedFileUtils()->addSearchPath("./data/");
+
+	GetSixEdgeMath()->SetDefaultEdgeLength(40.0f);
     
 	m_pRenderWorld = new CRenderWorld;
 	m_pRenderWorld->InitShaderProgram();

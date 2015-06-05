@@ -32,8 +32,9 @@ void CSixEdgeRenderObject::CreateVAO(GLProgram* pro)
 	glEnableVertexAttribArray(uvLocation);
 	glVertexAttribPointer(uvLocation, 2, GL_FLOAT, GL_FALSE, sizeof(CVertex), (GLvoid*)offsetof(CVertex, m_uv));
 
-	m_iUniformPosLoc = glGetUniformLocation(pro->getProgram(), "u_pos");
 	m_iTexLoc = glGetUniformLocation(pro->getProgram(), "CC_Texture1");
+	m_iColorMaskLoc = glGetUniformLocation(pro->getProgram(), "CC_Texture0");
+	m_iUniformPosLoc = glGetUniformLocation(pro->getProgram(), "u_pos");
 
 	glBindVertexArray(0);
 	CHECK_GL_ERROR_DEBUG();
@@ -50,7 +51,9 @@ void CSixEdgeRenderObject::Draw()
 	glUniform4fv(m_iUniformPosLoc, 1, uPos);
 
 	GL::bindTexture2DN(0, m_iTextureID);
-	glUniform1i(m_iTextureID, 0);
+	GL::bindTexture2DN(1, m_iColorMaskID);
+	glUniform1i(m_iTextureID, 0);	
+	glUniform1i(m_iColorMaskID, 1);
 
 	glDrawElements(GL_TRIANGLES, 12, GL_UNSIGNED_BYTE, (GLvoid*)0);
 
@@ -63,6 +66,8 @@ void CSixEdgeRenderObject::Draw()
 bool CSixEdgeRenderObject::CreateTexture(std::string& imageName)
 {
 	m_iTextureID = Director::getInstance()->getTextureCache()->addImage(imageName.c_str())->getName();
+	//m_iTextureID = Director::getInstance()->getTextureCache()->addImage("edge_mask.png")->getName();
+	m_iColorMaskID = Director::getInstance()->getTextureCache()->addImage("edge_mask.png")->getName();
 	CHECK_GL_ERROR_DEBUG();
 	return true;
 }
