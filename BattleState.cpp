@@ -76,7 +76,7 @@ void State_PawnClicked::Update(float t)
 		//没有点到一个pawn
 		//m_pEventHandler->
 		CPawn* pCurClickP = m_pEventHandler->GetPawnMgr()->GetPawnByIndex(curClickPawn);
-		pCurClickP->SetPos(CLPoint2D(2, 2, true));
+		pCurClickP->SetPos(m_pEventHandler->m_touchPoint);
 	}
 
 }
