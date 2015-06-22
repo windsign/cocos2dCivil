@@ -12,7 +12,7 @@ class CTerrain
 public:
 
 private:
-     std::vector<std::vector<CSceneEntity> > m_odderrainCell;
+     std::vector<std::vector<CSceneEntity> > m_oddTerrainCell;
      std::vector<std::vector<CSceneEntity> > m_evenTerrainCell;
      
      int m_iOddHeight;

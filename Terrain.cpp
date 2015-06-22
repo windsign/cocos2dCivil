@@ -2,7 +2,7 @@
 
 bool CTerrain::LoadTerrain(const char* terrainName)
 {
-
+    return true;
 }
 
 CSceneEntity* CTerrain::GetSceneEntity(CLPoint2D& point)

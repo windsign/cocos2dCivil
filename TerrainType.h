@@ -26,7 +26,7 @@ enum EResourceType
      eRT_None,
      eRT_Gold,
      eRT_Silver,
-     eRT_Iron，
+     eRT_Iron,
      eRT_Jewel,
      eRT_Wind,
      eRT_Fire,

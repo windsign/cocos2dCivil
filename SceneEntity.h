@@ -1,6 +1,6 @@
 
 #include "TerrainType.h"
-
+#include "Point2D.h"
 struct OneTerrainCell
 {
      CLPoint2D m_logicPosition;
