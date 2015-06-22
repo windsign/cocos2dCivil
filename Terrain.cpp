@@ -5,7 +5,7 @@ bool CTerrain::LoadTerrain(const char* terrainName)
 
 }
 
-OneTerrainCell* CTerrain::GetTerrainCell(CLPoint2D& point)
+CSceneEntity* CTerrain::GetSceneEntity(CLPoint2D& point)
 {
      if(point.e)
      {
